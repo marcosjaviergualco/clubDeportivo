@@ -6,13 +6,28 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
-    public class Persona
+    [Serializable]
+    public abstract class Persona
     {
-        private int dni;
-        private string nombreCompleto;
-        private char genero;
-        private DateTime fechaNac;
-        private string domicilio;
-        private List<Actividad> actividadesAsociadas;
+
+
+        protected string dni;
+        protected string nombreCompleto;
+        protected char genero;
+        protected DateTime fechaNac;
+        protected string domicilio;
+        protected List<Actividad> actividadesAsociadas;
+    
+
+    public Persona(string unDni, string unNombreCompleto, char unGenero, DateTime unaFechaNac, string unDomicilio)
+    {
+        dni = unDni;
+        nombreCompleto = unNombreCompleto;
+            genero = unGenero;
+            fechaNac = unaFechaNac;
+            domicilio = unDomicilio;
+            actividadesAsociadas = null;
+    }
+
     }
 }

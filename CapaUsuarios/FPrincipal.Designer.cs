@@ -30,16 +30,16 @@ namespace CapaUsuarios
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnCrearSocio = new System.Windows.Forms.Button();
-            this.btnEliminarSocio = new System.Windows.Forms.Button();
-            this.btnGenerarPago = new System.Windows.Forms.Button();
-            this.btnCrearActividad = new System.Windows.Forms.Button();
-            this.btnEliminarActividad = new System.Windows.Forms.Button();
-            this.btnListarPagos = new System.Windows.Forms.Button();
-            this.btnListarSocios = new System.Windows.Forms.Button();
             this.btnListarActividades = new System.Windows.Forms.Button();
+            this.btnEliminarActividad = new System.Windows.Forms.Button();
+            this.btnCrearActividad = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnListarPagos = new System.Windows.Forms.Button();
+            this.btnGenerarPago = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnListarSocios = new System.Windows.Forms.Button();
+            this.btnEliminarSocio = new System.Windows.Forms.Button();
+            this.btnCrearSocio = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -57,6 +57,33 @@ namespace CapaUsuarios
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ACTIVIDADES";
             // 
+            // btnListarActividades
+            // 
+            this.btnListarActividades.Location = new System.Drawing.Point(40, 222);
+            this.btnListarActividades.Name = "btnListarActividades";
+            this.btnListarActividades.Size = new System.Drawing.Size(115, 35);
+            this.btnListarActividades.TabIndex = 2;
+            this.btnListarActividades.Text = "LISTAR ACTIVIDADES";
+            this.btnListarActividades.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminarActividad
+            // 
+            this.btnEliminarActividad.Location = new System.Drawing.Point(40, 145);
+            this.btnEliminarActividad.Name = "btnEliminarActividad";
+            this.btnEliminarActividad.Size = new System.Drawing.Size(115, 38);
+            this.btnEliminarActividad.TabIndex = 1;
+            this.btnEliminarActividad.Text = "ELIMINAR ACTIVIDAD";
+            this.btnEliminarActividad.UseVisualStyleBackColor = true;
+            // 
+            // btnCrearActividad
+            // 
+            this.btnCrearActividad.Location = new System.Drawing.Point(40, 72);
+            this.btnCrearActividad.Name = "btnCrearActividad";
+            this.btnCrearActividad.Size = new System.Drawing.Size(115, 23);
+            this.btnCrearActividad.TabIndex = 0;
+            this.btnCrearActividad.Text = "CREAR ACTIVIDAD";
+            this.btnCrearActividad.UseVisualStyleBackColor = true;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnListarPagos);
@@ -67,6 +94,24 @@ namespace CapaUsuarios
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "PAGOS";
+            // 
+            // btnListarPagos
+            // 
+            this.btnListarPagos.Location = new System.Drawing.Point(61, 145);
+            this.btnListarPagos.Name = "btnListarPagos";
+            this.btnListarPagos.Size = new System.Drawing.Size(75, 23);
+            this.btnListarPagos.TabIndex = 1;
+            this.btnListarPagos.Text = "LISTAR PAGOS";
+            this.btnListarPagos.UseVisualStyleBackColor = true;
+            // 
+            // btnGenerarPago
+            // 
+            this.btnGenerarPago.Location = new System.Drawing.Point(61, 72);
+            this.btnGenerarPago.Name = "btnGenerarPago";
+            this.btnGenerarPago.Size = new System.Drawing.Size(74, 36);
+            this.btnGenerarPago.TabIndex = 0;
+            this.btnGenerarPago.Text = "GENERAR PAGO";
+            this.btnGenerarPago.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -80,15 +125,14 @@ namespace CapaUsuarios
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "SOCIOS";
             // 
-            // btnCrearSocio
+            // btnListarSocios
             // 
-            this.btnCrearSocio.Location = new System.Drawing.Point(45, 72);
-            this.btnCrearSocio.Name = "btnCrearSocio";
-            this.btnCrearSocio.Size = new System.Drawing.Size(106, 23);
-            this.btnCrearSocio.TabIndex = 0;
-            this.btnCrearSocio.Text = "CREAR SOCIO";
-            this.btnCrearSocio.UseVisualStyleBackColor = true;
-            this.btnCrearSocio.Click += new System.EventHandler(this.btnCrearSocio_Click);
+            this.btnListarSocios.Location = new System.Drawing.Point(45, 222);
+            this.btnListarSocios.Name = "btnListarSocios";
+            this.btnListarSocios.Size = new System.Drawing.Size(106, 23);
+            this.btnListarSocios.TabIndex = 2;
+            this.btnListarSocios.Text = "LISTAR SOCIOS";
+            this.btnListarSocios.UseVisualStyleBackColor = true;
             // 
             // btnEliminarSocio
             // 
@@ -99,59 +143,15 @@ namespace CapaUsuarios
             this.btnEliminarSocio.Text = "ELIMINAR SOCIO";
             this.btnEliminarSocio.UseVisualStyleBackColor = true;
             // 
-            // btnGenerarPago
+            // btnCrearSocio
             // 
-            this.btnGenerarPago.Location = new System.Drawing.Point(61, 72);
-            this.btnGenerarPago.Name = "btnGenerarPago";
-            this.btnGenerarPago.Size = new System.Drawing.Size(74, 36);
-            this.btnGenerarPago.TabIndex = 0;
-            this.btnGenerarPago.Text = "GENERAR PAGO";
-            this.btnGenerarPago.UseVisualStyleBackColor = true;
-            // 
-            // btnCrearActividad
-            // 
-            this.btnCrearActividad.Location = new System.Drawing.Point(40, 72);
-            this.btnCrearActividad.Name = "btnCrearActividad";
-            this.btnCrearActividad.Size = new System.Drawing.Size(115, 23);
-            this.btnCrearActividad.TabIndex = 0;
-            this.btnCrearActividad.Text = "CREAR ACTIVIDAD";
-            this.btnCrearActividad.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminarActividad
-            // 
-            this.btnEliminarActividad.Location = new System.Drawing.Point(40, 145);
-            this.btnEliminarActividad.Name = "btnEliminarActividad";
-            this.btnEliminarActividad.Size = new System.Drawing.Size(115, 38);
-            this.btnEliminarActividad.TabIndex = 1;
-            this.btnEliminarActividad.Text = "ELIMINAR ACTIVIDAD";
-            this.btnEliminarActividad.UseVisualStyleBackColor = true;
-            // 
-            // btnListarPagos
-            // 
-            this.btnListarPagos.Location = new System.Drawing.Point(61, 145);
-            this.btnListarPagos.Name = "btnListarPagos";
-            this.btnListarPagos.Size = new System.Drawing.Size(75, 23);
-            this.btnListarPagos.TabIndex = 1;
-            this.btnListarPagos.Text = "LISTAR PAGOS";
-            this.btnListarPagos.UseVisualStyleBackColor = true;
-            // 
-            // btnListarSocios
-            // 
-            this.btnListarSocios.Location = new System.Drawing.Point(45, 222);
-            this.btnListarSocios.Name = "btnListarSocios";
-            this.btnListarSocios.Size = new System.Drawing.Size(106, 23);
-            this.btnListarSocios.TabIndex = 2;
-            this.btnListarSocios.Text = "LISTAR SOCIOS";
-            this.btnListarSocios.UseVisualStyleBackColor = true;
-            // 
-            // btnListarActividades
-            // 
-            this.btnListarActividades.Location = new System.Drawing.Point(40, 222);
-            this.btnListarActividades.Name = "btnListarActividades";
-            this.btnListarActividades.Size = new System.Drawing.Size(115, 35);
-            this.btnListarActividades.TabIndex = 2;
-            this.btnListarActividades.Text = "LISTAR ACTIVIDADES";
-            this.btnListarActividades.UseVisualStyleBackColor = true;
+            this.btnCrearSocio.Location = new System.Drawing.Point(45, 72);
+            this.btnCrearSocio.Name = "btnCrearSocio";
+            this.btnCrearSocio.Size = new System.Drawing.Size(106, 23);
+            this.btnCrearSocio.TabIndex = 0;
+            this.btnCrearSocio.Text = "CREAR SOCIO";
+            this.btnCrearSocio.UseVisualStyleBackColor = true;
+            this.btnCrearSocio.Click += new System.EventHandler(this.btnCrearSocio_Click);
             // 
             // FPrincipal
             // 

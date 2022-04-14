@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
-    public class SocioActividad
+    [Serializable]
+    public sealed class SocioActividad:Socio
     {
+        public SocioActividad(string unDni, string unNombreCompleto, char unGenero, DateTime unaFechaNac, string unDomicilio)
+            : base(unDni, unNombreCompleto, unGenero, unaFechaNac, unDomicilio)
+        {
+
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace CapaUsuarios
 {
     public partial class FPrincipal : Form
     {
+        Club cl;
         public FPrincipal()
         {
             InitializeComponent();
@@ -20,7 +21,10 @@ namespace CapaUsuarios
 
         private void btnCrearSocio_Click(object sender, EventArgs e)
         {
-
+            FCrearSocio fc = new FCrearSocio();
+            fc.ShowDialog();
         }
+
+        
     }
 }

@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
-    public class Socio:Persona
+    [Serializable]
+    public abstract class Socio:Persona
     {
-
+        public Socio(string unDni, string unNombreCompleto, char unGenero, DateTime unaFechaNac, string unDomicilio)
+            :base(unDni, unNombreCompleto, unGenero, unaFechaNac, unDomicilio)
+        {
+           
+        }
     }
 }

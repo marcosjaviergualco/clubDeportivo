@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CapaDatos;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class Club
     {
         private List<Actividad> actividades;
@@ -19,6 +21,21 @@ namespace CapaNegocio
             socios = new List<Socio>();
             profesores = new List<Profesor>();
             pagos = new List<Pago>();
+        }
+
+        public bool Guardar()
+        {
+           return Datos.Guardar(this);
+        }
+
+        public static Club Recuperar()
+        {
+            Club c = (Club)Datos.Recuperar();
+            if (c == null)
+            {
+                c = new Club();
+            }
+            return c;
         }
     }
 }
