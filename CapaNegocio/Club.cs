@@ -23,6 +23,41 @@ namespace CapaNegocio
             pagos = new List<Pago>();
         }
 
+        public List<Actividad> Actividades
+        {
+            get { return actividades; }
+        }
+
+        public List<Socio> Socios
+        {
+            get { return socios; }
+        }
+
+        public List<Pago> Pago
+        {
+            get { return pagos; }
+        }
+
+        public void agregar(Socio socioClub)
+        {
+            socios.Add(socioClub);
+        }
+
+        public void agregar(Actividad actividad)
+        {
+            actividades.Add(actividad);
+        }
+
+        public void agregar(Profesor profesor)
+        {
+            profesores.Add(profesor);
+        }
+
+        public void agregar(Pago pago)
+        {
+            pagos.Add(pago);
+        }
+
         public bool Guardar()
         {
            return Datos.Guardar(this);

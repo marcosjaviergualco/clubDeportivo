@@ -13,7 +13,7 @@ namespace CapaUsuarios
 {
     public partial class FCrearSocio : Form
     {
-        private FCrearSocio soc;
+        private Socio soc;
         public FCrearSocio()
         {
             InitializeComponent();
@@ -41,10 +41,8 @@ namespace CapaUsuarios
             else
             {
                 soc = new SocioActividad(unDni, unNom, g, fn, unDom);
-            }    
-            
-            
-
+            }
+            this.Close();
         }
 
         private void comboBoxTipoSocio_SelectedValueChanged(object sender, EventArgs e)
