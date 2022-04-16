@@ -1,0 +1,6 @@
+C:\club-deportivo\Excepciones\bin\Debug\Excepciones.dll
+C:\club-deportivo\Excepciones\bin\Debug\Excepciones.pdb
+C:\club-deportivo\Excepciones\obj\Debug\Excepciones.csproj.AssemblyReference.cache
+C:\club-deportivo\Excepciones\obj\Debug\Excepciones.csproj.CoreCompileInputs.cache
+C:\club-deportivo\Excepciones\obj\Debug\Excepciones.dll
+C:\club-deportivo\Excepciones\obj\Debug\Excepciones.pdb

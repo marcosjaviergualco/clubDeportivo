@@ -33,3 +33,8 @@ C:\club-deportivo\CapaUsuarios\obj\Debug\CapaUsuarios.pdb
 C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FCrearActividad.resources
 C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FCrearProfesor.resources
 C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FMostrar.resources
+C:\club-deportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FCrearActividad.resources
+C:\club-deportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FCrearProfesor.resources
+C:\club-deportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FMostrar.resources
+C:\club-deportivo\CapaUsuarios\bin\Debug\Excepciones.dll
+C:\club-deportivo\CapaUsuarios\bin\Debug\Excepciones.pdb

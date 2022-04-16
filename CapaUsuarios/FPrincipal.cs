@@ -30,7 +30,6 @@ namespace CapaUsuarios
         {
             FCrearSocio fc = new FCrearSocio();
             fc.ShowDialog();
-            //No comprendo cómo es que se debe agregar un nuevo socio desde el formulario principal
             Socio socio = fc.Socio;
             cl.Socios.Add(socio);
         }
