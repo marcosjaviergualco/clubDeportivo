@@ -38,6 +38,11 @@ namespace CapaNegocio
             get { return pagos; }
         }
 
+        public List<Profesor> Profesores
+        {
+            get { return profesores; }
+        }
+
         public void agregar(Socio socioClub)
         {
             socios.Add(socioClub);
@@ -72,5 +77,6 @@ namespace CapaNegocio
             }
             return c;
         }
+
     }
 }

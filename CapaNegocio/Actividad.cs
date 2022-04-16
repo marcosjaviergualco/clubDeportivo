@@ -27,5 +27,11 @@ namespace CapaNegocio
             profesor = unProfesor;
             socios = new List<Socio>();
         }
+
+        public override string ToString()
+        {
+            // no funciona el \n (new line)
+            return "ID: "+id+"\nDescripcion: "+descripcion+"\nDia y Hora: "+diaHora+"\nCosto: "+costo+"\nCantidad máxima de participantes: "+cantMaxParticipantes+"\nProfesor: "+profesor+"\n";
+        }
     }
 }

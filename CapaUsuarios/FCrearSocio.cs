@@ -42,6 +42,7 @@ namespace CapaUsuarios
             {
                 soc = new SocioActividad(unDni, unNom, g, fn, unDom);
             }
+
             this.Close();
         }
 
@@ -62,6 +63,11 @@ namespace CapaUsuarios
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public Socio Socio
+        {
+            get { return soc; }
         }
     }
 }

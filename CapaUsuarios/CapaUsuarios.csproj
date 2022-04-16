@@ -46,11 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FCrearActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCrearActividad.Designer.cs">
+      <DependentUpon>FCrearActividad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FCrearProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCrearProfesor.Designer.cs">
+      <DependentUpon>FCrearProfesor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FCrearSocio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FCrearSocio.Designer.cs">
       <DependentUpon>FCrearSocio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FMostrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMostrar.Designer.cs">
+      <DependentUpon>FMostrar.cs</DependentUpon>
     </Compile>
     <Compile Include="FPrincipal.cs">
       <SubType>Form</SubType>
@@ -60,8 +78,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FCrearActividad.resx">
+      <DependentUpon>FCrearActividad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FCrearProfesor.resx">
+      <DependentUpon>FCrearProfesor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FCrearSocio.resx">
       <DependentUpon>FCrearSocio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMostrar.resx">
+      <DependentUpon>FMostrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FPrincipal.resx">
       <DependentUpon>FPrincipal.cs</DependentUpon>

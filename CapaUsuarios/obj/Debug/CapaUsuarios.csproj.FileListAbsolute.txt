@@ -30,3 +30,6 @@ C:\club-deportivo\CapaUsuarios\obj\Debug\CapaUsuarios.csproj.CoreCompileInputs.c
 C:\club-deportivo\CapaUsuarios\obj\Debug\CapaUsuarios.csproj.CopyComplete
 C:\club-deportivo\CapaUsuarios\obj\Debug\CapaUsuarios.exe
 C:\club-deportivo\CapaUsuarios\obj\Debug\CapaUsuarios.pdb
+C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FCrearActividad.resources
+C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FCrearProfesor.resources
+C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FMostrar.resources

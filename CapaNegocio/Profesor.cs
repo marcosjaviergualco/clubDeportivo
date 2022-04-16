@@ -16,5 +16,10 @@ namespace CapaNegocio
         {
             legajo = unLegajo;
         }
+
+        public override string ToString()
+        {
+            return legajo + " - " + nombreCompleto;
+        }
     }
 }

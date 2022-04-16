@@ -40,6 +40,7 @@ namespace CapaUsuarios
             this.btnListarSocios = new System.Windows.Forms.Button();
             this.btnEliminarSocio = new System.Windows.Forms.Button();
             this.btnCrearSocio = new System.Windows.Forms.Button();
+            this.btnCrearProfesor = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -65,6 +66,7 @@ namespace CapaUsuarios
             this.btnListarActividades.TabIndex = 2;
             this.btnListarActividades.Text = "LISTAR ACTIVIDADES";
             this.btnListarActividades.UseVisualStyleBackColor = true;
+            this.btnListarActividades.Click += new System.EventHandler(this.btnListarActividades_Click);
             // 
             // btnEliminarActividad
             // 
@@ -83,6 +85,7 @@ namespace CapaUsuarios
             this.btnCrearActividad.TabIndex = 0;
             this.btnCrearActividad.Text = "CREAR ACTIVIDAD";
             this.btnCrearActividad.UseVisualStyleBackColor = true;
+            this.btnCrearActividad.Click += new System.EventHandler(this.btnCrearActividad_Click);
             // 
             // groupBox2
             // 
@@ -153,16 +156,28 @@ namespace CapaUsuarios
             this.btnCrearSocio.UseVisualStyleBackColor = true;
             this.btnCrearSocio.Click += new System.EventHandler(this.btnCrearSocio_Click);
             // 
+            // btnCrearProfesor
+            // 
+            this.btnCrearProfesor.Location = new System.Drawing.Point(87, 382);
+            this.btnCrearProfesor.Name = "btnCrearProfesor";
+            this.btnCrearProfesor.Size = new System.Drawing.Size(130, 23);
+            this.btnCrearProfesor.TabIndex = 3;
+            this.btnCrearProfesor.Text = "CREAR PROFESOR";
+            this.btnCrearProfesor.UseVisualStyleBackColor = true;
+            this.btnCrearProfesor.Click += new System.EventHandler(this.btnCrearProfesor_Click);
+            // 
             // FPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCrearProfesor);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FPrincipal";
             this.Text = "PRINCIPAL";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FPrincipal_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -183,6 +198,7 @@ namespace CapaUsuarios
         private System.Windows.Forms.Button btnListarActividades;
         private System.Windows.Forms.Button btnListarPagos;
         private System.Windows.Forms.Button btnListarSocios;
+        private System.Windows.Forms.Button btnCrearProfesor;
     }
 }
 
