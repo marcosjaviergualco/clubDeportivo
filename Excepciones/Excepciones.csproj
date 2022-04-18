@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DescripcionException.cs" />
     <Compile Include="DniException.cs" />
     <Compile Include="DomicilioException.cs" />
     <Compile Include="NombreException.cs" />
