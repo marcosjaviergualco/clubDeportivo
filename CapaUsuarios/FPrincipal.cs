@@ -31,7 +31,8 @@ namespace CapaUsuarios
             FCrearSocio fc = new FCrearSocio();
             fc.ShowDialog();
             Socio socio = fc.Socio;
-            cl.Socios.Add(socio);
+            if (socio != null)
+                cl.agregar(socio);
         }
 
         private void btnCrearActividad_Click(object sender, EventArgs e)
@@ -40,7 +41,8 @@ namespace CapaUsuarios
             fca.ShowDialog();
             // Agregar a lista de actividades
             Actividad a = fca.Actividad;
-            cl.Actividades.Add(a);
+            if (a != null)
+                cl.agregar(a);
         }
 
         private void btnCrearProfesor_Click(object sender, EventArgs e)
@@ -49,7 +51,8 @@ namespace CapaUsuarios
             fcp.ShowDialog();
             // Agregar a lista de profesores
             Profesor p = fcp.Prof;
-            cl.Profesores.Add(p);
+            if (p != null)
+                cl.agregar(p);
         }
 
         private void btnListarActividades_Click(object sender, EventArgs e)
@@ -64,6 +67,17 @@ namespace CapaUsuarios
                 MessageBox.Show("GUARDADO OK");
             else
                 MessageBox.Show("ERROR AL GUARDAR");
+        }
+
+        private void btnGenerarPago_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FInscribir fi = new FInscribir(cl.Actividades, cl.Socios);
+
         }
     }
 }

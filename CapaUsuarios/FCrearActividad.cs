@@ -30,12 +30,11 @@ namespace CapaUsuarios
             {
                 int unId = int.Parse(this.textBoxId.Text);
                 string unaDesc = this.textBoxDesc.Text;
-                DateTime unDiaYHora = this.dateTimePickerDiaYHora.Value;
+                string unDia = this.comboBoxDia.SelectedItem.ToString();
+                DateTime unaHora = this.dateTimePickerHora.Value;
                 float unCosto = float.Parse(this.textBoxCosto.Text);
                 int unaCantMax = int.Parse(this.textBoxCantMax.Text);
                 Profesor prof = (Profesor)listBoxProfesores.SelectedItem;
-
-                act = new Actividad(unId, unaDesc, unDiaYHora, unCosto, unaCantMax, prof);
 
                 if( unaDesc.Length == 0)
                 {
@@ -47,7 +46,7 @@ namespace CapaUsuarios
                     throw new CostoException();
                     textBoxCosto.Focus();
                 }
-
+                act = new Actividad(unId, unaDesc, unDia, unaHora, unCosto, unaCantMax, prof);
                 this.Close();
             }
             catch (DescripcionException ex)

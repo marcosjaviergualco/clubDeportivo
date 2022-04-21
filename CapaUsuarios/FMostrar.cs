@@ -18,7 +18,7 @@ namespace CapaUsuarios
             InitializeComponent();
             listBoxMostrar.DataSource = actividades;
             listBoxMostrar.ClearSelected();
-            
+
         }
 
         private void btnCerrarMostrar_Click(object sender, EventArgs e)

@@ -14,5 +14,15 @@ namespace CapaNegocio
         {
 
         }
+
+        public override float devolverCosto(Actividad act)
+        {
+            return act.Costo;
+        }
+
+        public override void inscribir(Actividad act)
+        {
+            base.actividadesAsociadas.Add(act);
+        }
     }
 }

@@ -11,17 +11,19 @@ namespace CapaNegocio
     {
         private int id;
         private string descripcion;
-        private DateTime diaHora;
+        private DateTime hora;
+        private string dia;
         private float costo;
         private int cantMaxParticipantes;
         private Profesor profesor;
         private List<Socio> socios;
 
-        public Actividad(int unId, string unaDesc, DateTime unDiaHora, float unCosto, int unCantMaxParticipantes, Profesor unProfesor)
+        public Actividad(int unId, string unaDesc, string unDia, DateTime unaHora, float unCosto, int unCantMaxParticipantes, Profesor unProfesor)
         {
             id = unId;
             descripcion = unaDesc;
-            diaHora = unDiaHora;
+            dia = unDia;
+            hora = unaHora;
             costo = unCosto;
             cantMaxParticipantes = unCantMaxParticipantes;
             profesor = unProfesor;
@@ -31,7 +33,12 @@ namespace CapaNegocio
         public override string ToString()
         {
             // no funciona el \n (new line)
-            return "ID: "+id+"\nDescripcion: "+descripcion+"\nDia y Hora: "+diaHora+"\nCosto: "+costo+"\nCantidad máxima de participantes: "+cantMaxParticipantes+"\nProfesor: "+profesor+"\n";
+            return "ID: " + id + "Descripcion: " + descripcion + "Dia: " + dia + "Hora: " + hora + "Costo: " + costo + "Cantidad máxima de participantes: " + cantMaxParticipantes + "Profesor: " + profesor;
+        }
+
+        public float Costo
+        {
+            get {return costo;}
         }
     }
 }

@@ -42,7 +42,9 @@ namespace CapaUsuarios
             this.textBoxCantMax = new System.Windows.Forms.TextBox();
             this.btnCrear = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.dateTimePickerDiaYHora = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerHora = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBoxDia = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // labelDescripcion
@@ -66,11 +68,11 @@ namespace CapaUsuarios
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(72, 153);
+            this.label1.Location = new System.Drawing.Point(190, 148);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 13);
+            this.label1.Size = new System.Drawing.Size(30, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Día y Hora";
+            this.label1.Text = "Hora";
             // 
             // labelProfesor
             // 
@@ -92,7 +94,7 @@ namespace CapaUsuarios
             // labelCosto
             // 
             this.labelCosto.AutoSize = true;
-            this.labelCosto.Location = new System.Drawing.Point(73, 207);
+            this.labelCosto.Location = new System.Drawing.Point(73, 283);
             this.labelCosto.Name = "labelCosto";
             this.labelCosto.Size = new System.Drawing.Size(34, 13);
             this.labelCosto.TabIndex = 5;
@@ -101,7 +103,7 @@ namespace CapaUsuarios
             // labelCantMax
             // 
             this.labelCantMax.AutoSize = true;
-            this.labelCantMax.Location = new System.Drawing.Point(72, 269);
+            this.labelCantMax.Location = new System.Drawing.Point(72, 224);
             this.labelCantMax.Name = "labelCantMax";
             this.labelCantMax.Size = new System.Drawing.Size(167, 13);
             this.labelCantMax.TabIndex = 6;
@@ -123,14 +125,14 @@ namespace CapaUsuarios
             // 
             // textBoxCosto
             // 
-            this.textBoxCosto.Location = new System.Drawing.Point(75, 224);
+            this.textBoxCosto.Location = new System.Drawing.Point(75, 300);
             this.textBoxCosto.Name = "textBoxCosto";
             this.textBoxCosto.Size = new System.Drawing.Size(100, 20);
             this.textBoxCosto.TabIndex = 10;
             // 
             // textBoxCantMax
             // 
-            this.textBoxCantMax.Location = new System.Drawing.Point(75, 285);
+            this.textBoxCantMax.Location = new System.Drawing.Point(75, 240);
             this.textBoxCantMax.Name = "textBoxCantMax";
             this.textBoxCantMax.Size = new System.Drawing.Size(100, 20);
             this.textBoxCantMax.TabIndex = 11;
@@ -155,20 +157,46 @@ namespace CapaUsuarios
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // dateTimePickerDiaYHora
+            // dateTimePickerHora
             // 
-            this.dateTimePickerDiaYHora.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePickerDiaYHora.Location = new System.Drawing.Point(75, 174);
-            this.dateTimePickerDiaYHora.Name = "dateTimePickerDiaYHora";
-            this.dateTimePickerDiaYHora.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePickerDiaYHora.TabIndex = 14;
+            this.dateTimePickerHora.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePickerHora.Location = new System.Drawing.Point(193, 174);
+            this.dateTimePickerHora.Name = "dateTimePickerHora";
+            this.dateTimePickerHora.Size = new System.Drawing.Size(82, 20);
+            this.dateTimePickerHora.TabIndex = 14;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(76, 148);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(25, 13);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Día";
+            // 
+            // comboBoxDia
+            // 
+            this.comboBoxDia.FormattingEnabled = true;
+            this.comboBoxDia.Items.AddRange(new object[] {
+            "Lunes",
+            "Martes",
+            "Miércoles",
+            "Jueves",
+            "Viernes",
+            "Sábado"});
+            this.comboBoxDia.Location = new System.Drawing.Point(75, 173);
+            this.comboBoxDia.Name = "comboBoxDia";
+            this.comboBoxDia.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxDia.TabIndex = 16;
             // 
             // FCrearActividad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dateTimePickerDiaYHora);
+            this.Controls.Add(this.comboBoxDia);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dateTimePickerHora);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCrear);
             this.Controls.Add(this.textBoxCantMax);
@@ -204,6 +232,8 @@ namespace CapaUsuarios
         private System.Windows.Forms.TextBox textBoxCantMax;
         private System.Windows.Forms.Button btnCrear;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.DateTimePicker dateTimePickerDiaYHora;
+        private System.Windows.Forms.DateTimePicker dateTimePickerHora;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBoxDia;
     }
 }

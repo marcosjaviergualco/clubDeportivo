@@ -17,5 +17,10 @@ namespace CapaNegocio
             cuotaSocial = unaCuotaSocial;
         }
 
+        public override float devolverCosto()
+        {
+
+            return 0;
+        }
     }
 }

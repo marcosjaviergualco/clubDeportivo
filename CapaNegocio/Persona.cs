@@ -29,5 +29,6 @@ namespace CapaNegocio
             actividadesAsociadas = null;
     }
 
+        public abstract void inscribir(Actividad act);
     }
 }

@@ -52,6 +52,12 @@
     <Compile Include="FCrearActividad.Designer.cs">
       <DependentUpon>FCrearActividad.cs</DependentUpon>
     </Compile>
+    <Compile Include="FCrearPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCrearPago.Designer.cs">
+      <DependentUpon>FCrearPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="FCrearProfesor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,12 @@
     </Compile>
     <Compile Include="FCrearSocio.Designer.cs">
       <DependentUpon>FCrearSocio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FInscribir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FInscribir.Designer.cs">
+      <DependentUpon>FInscribir.cs</DependentUpon>
     </Compile>
     <Compile Include="FMostrar.cs">
       <SubType>Form</SubType>
@@ -81,11 +93,17 @@
     <EmbeddedResource Include="FCrearActividad.resx">
       <DependentUpon>FCrearActividad.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FCrearPago.resx">
+      <DependentUpon>FCrearPago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FCrearProfesor.resx">
       <DependentUpon>FCrearProfesor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FCrearSocio.resx">
       <DependentUpon>FCrearSocio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FInscribir.resx">
+      <DependentUpon>FInscribir.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FMostrar.resx">
       <DependentUpon>FMostrar.cs</DependentUpon>

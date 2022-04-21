@@ -38,3 +38,6 @@ C:\club-deportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FCrearProfesor.resources
 C:\club-deportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FMostrar.resources
 C:\club-deportivo\CapaUsuarios\bin\Debug\Excepciones.dll
 C:\club-deportivo\CapaUsuarios\bin\Debug\Excepciones.pdb
+C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\bin\Debug\Excepciones.dll
+C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\bin\Debug\Excepciones.pdb
+C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FCrearPago.resources
