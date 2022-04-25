@@ -77,7 +77,7 @@ namespace CapaUsuarios
         private void button1_Click(object sender, EventArgs e)
         {
             FInscribir fi = new FInscribir(cl.Actividades, cl.Socios);
-
+            fi.ShowDialog();
         }
     }
 }

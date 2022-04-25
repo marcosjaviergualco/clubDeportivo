@@ -21,14 +21,12 @@ namespace CapaUsuarios
         public FCrearPago(List<Actividad> actividades, List<Socio> socios)
         {
             InitializeComponent();
-            comboBoxActividad.DataSource = actividades;
             comboBoxSocio.DataSource = socios;
 
         }
 
         private void btnEfectuarPago_Click(object sender, EventArgs e)
         {
-            unaActividad = (Actividad)comboBoxActividad.SelectedItem;
             unSocio = (Socio)comboBoxSocio.SelectedItem;
             unaFecha = dateTimePickerPago.Value;
 

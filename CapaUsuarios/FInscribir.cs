@@ -24,8 +24,20 @@ namespace CapaUsuarios
 
         private void btnInscribir_Click(object sender, EventArgs e)
         {
-            s = (Socio)comboBoxSocios.SelectedItem;
-            s.inscribir((Actividad)comboBoxActividades.SelectedItem);
+            try
+            {
+                s = (Socio)comboBoxSocios.SelectedItem;
+                s.inscribir((Actividad)comboBoxActividades.SelectedItem);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

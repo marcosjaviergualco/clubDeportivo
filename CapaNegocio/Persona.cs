@@ -23,12 +23,11 @@ namespace CapaNegocio
     {
         dni = unDni;
         nombreCompleto = unNombreCompleto;
-            genero = unGenero;
-            fechaNac = unaFechaNac;
-            domicilio = unDomicilio;
-            actividadesAsociadas = null;
+        genero = unGenero;
+        fechaNac = unaFechaNac;
+        domicilio = unDomicilio;
+        actividadesAsociadas = null;
     }
 
-        public abstract void inscribir(Actividad act);
     }
 }

@@ -50,13 +50,14 @@ namespace CapaUsuarios
                 {
                     soc = new SocioActividad(unDni, unNom, g, fn, unDom);
                 }
+
+                if (unNom.Length == 0)
+                    throw new NombreException();
+
                 string format1Dni = unDni.Replace(" ", "");
                 string format2Dni = format1Dni.Replace(",", "");
                 if (format2Dni.Length == 0)
                     throw new DniException();
-
-                if( unNom.Length == 0)
-                    throw new NombreException();
 
                 if (unDom.Length == 0)
                 {

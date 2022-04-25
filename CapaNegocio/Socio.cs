@@ -17,5 +17,7 @@ namespace CapaNegocio
 
         public abstract float devolverCosto(Actividad act);
 
+        public abstract void inscribir(Actividad act);
+
     }
 }

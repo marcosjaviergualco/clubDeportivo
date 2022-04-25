@@ -33,7 +33,7 @@ namespace CapaNegocio
         public override string ToString()
         {
             // no funciona el \n (new line)
-            return "ID: " + id + "Descripcion: " + descripcion + "Dia: " + dia + "Hora: " + hora + "Costo: " + costo + "Cantidad máxima de participantes: " + cantMaxParticipantes + "Profesor: " + profesor;
+            return descripcion;
         }
 
         public float Costo

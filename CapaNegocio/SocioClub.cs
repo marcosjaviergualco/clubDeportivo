@@ -17,10 +17,15 @@ namespace CapaNegocio
             cuotaSocial = unaCuotaSocial;
         }
 
-        public override float devolverCosto()
+        public override float devolverCosto( Actividad act )
         {
 
             return 0;
+        }
+
+        public override void inscribir(Actividad act)
+        {
+            actividadesAsociadas.Add( act );
         }
     }
 }
