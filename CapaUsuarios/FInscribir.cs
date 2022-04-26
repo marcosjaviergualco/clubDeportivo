@@ -28,6 +28,7 @@ namespace CapaUsuarios
             {
                 s = (Socio)comboBoxSocios.SelectedItem;
                 s.inscribir((Actividad)comboBoxActividades.SelectedItem);
+                this.Close();
             }
             catch (Exception ex)
             {

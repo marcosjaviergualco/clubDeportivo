@@ -11,17 +11,16 @@ using CapaNegocio;
 
 namespace CapaUsuarios
 {
-    public partial class FMostrar : Form
+    public partial class FMostrarSocios : Form
     {
-        public FMostrar(List<Actividad> actividades)
+        public FMostrarSocios(List<Socio> socios)
         {
             InitializeComponent();
-            listBoxMostrar.DataSource = actividades;
-            listBoxMostrar.ClearSelected();
-
+            listBoxSocios.DataSource = socios;
+            listBoxSocios.ClearSelected();
         }
 
-        private void btnCerrarMostrar_Click(object sender, EventArgs e)
+        private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }

@@ -35,7 +35,6 @@ namespace CapaUsuarios
                     g = 'M';
                 string unDom = this.textDomicilio.Text;
                 string tipoDeSocio = this.comboBoxTipoSocio.Text;
-                Socio soc;
                 if (tipoDeSocio == "Socio Club")
                 {
                     float unaCuotaSocial = float.Parse(this.textBoxCuotaSocial.Text);
@@ -65,7 +64,7 @@ namespace CapaUsuarios
                     textDomicilio.Focus();
                 }
 
-
+                
                 this.Close();
             }
             catch (NombreException ex)

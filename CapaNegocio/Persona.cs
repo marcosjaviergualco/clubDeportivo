@@ -26,8 +26,13 @@ namespace CapaNegocio
         genero = unGenero;
         fechaNac = unaFechaNac;
         domicilio = unDomicilio;
-        actividadesAsociadas = null;
+        actividadesAsociadas = new List<Actividad>();
     }
+
+    public List<Actividad> Actividades
+        {
+            get { return actividadesAsociadas; }
+        }
 
     }
 }

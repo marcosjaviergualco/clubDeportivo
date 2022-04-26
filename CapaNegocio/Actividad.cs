@@ -33,12 +33,64 @@ namespace CapaNegocio
         public override string ToString()
         {
             // no funciona el \n (new line)
-            return descripcion;
+            return descripcion+" "+costo+" "+dia+" "+profesor;
         }
 
         public float Costo
         {
             get {return costo;}
+            set { costo = value; }
+        }
+
+        public float dame50Porciento()
+        {
+            return (float)(costo * (0.5));
+        }
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        public string Descripcion
+        {
+            get { return descripcion; }
+            set { descripcion = value; }
+        }
+
+        public string Dia
+        {
+            get { return dia; }
+            set { dia = value; }
+        }
+
+        public DateTime Hora
+        {
+            get { return hora; }
+            set { hora = value; }
+        }
+
+        public int CantMaxParticipantes
+        {
+            get { return cantMaxParticipantes; }
+            set { cantMaxParticipantes = value; }
+        }
+
+        public Profesor Profesor
+        {
+            get { return profesor; }
+            set { profesor = value; }
+        }
+
+        public List<Socio> Socios
+        {
+            get { return socios; }
+        }
+
+        public void removerSocio(Socio soc)
+        {
+            socios.Remove(soc);
         }
     }
 }

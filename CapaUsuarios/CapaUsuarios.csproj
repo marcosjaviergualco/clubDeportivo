@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FBorrarSocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FBorrarSocio.Designer.cs">
+      <DependentUpon>FBorrarSocio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FBorrarSocioDeActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FBorrarSocioDeActividad.Designer.cs">
+      <DependentUpon>FBorrarSocioDeActividad.cs</DependentUpon>
+    </Compile>
     <Compile Include="FCrearActividad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,17 +82,41 @@
     <Compile Include="FCrearSocio.Designer.cs">
       <DependentUpon>FCrearSocio.cs</DependentUpon>
     </Compile>
+    <Compile Include="FEliminarActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FEliminarActividad.Designer.cs">
+      <DependentUpon>FEliminarActividad.cs</DependentUpon>
+    </Compile>
     <Compile Include="FInscribir.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FInscribir.Designer.cs">
       <DependentUpon>FInscribir.cs</DependentUpon>
     </Compile>
+    <Compile Include="FModificarActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FModificarActividad.Designer.cs">
+      <DependentUpon>FModificarActividad.cs</DependentUpon>
+    </Compile>
     <Compile Include="FMostrar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FMostrar.Designer.cs">
       <DependentUpon>FMostrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FMostrarPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMostrarPagos.Designer.cs">
+      <DependentUpon>FMostrarPagos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FMostrarSocios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMostrarSocios.Designer.cs">
+      <DependentUpon>FMostrarSocios.cs</DependentUpon>
     </Compile>
     <Compile Include="FPrincipal.cs">
       <SubType>Form</SubType>
@@ -90,6 +126,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FBorrarSocio.resx">
+      <DependentUpon>FBorrarSocio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FBorrarSocioDeActividad.resx">
+      <DependentUpon>FBorrarSocioDeActividad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FCrearActividad.resx">
       <DependentUpon>FCrearActividad.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,11 +144,23 @@
     <EmbeddedResource Include="FCrearSocio.resx">
       <DependentUpon>FCrearSocio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FEliminarActividad.resx">
+      <DependentUpon>FEliminarActividad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FInscribir.resx">
       <DependentUpon>FInscribir.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FModificarActividad.resx">
+      <DependentUpon>FModificarActividad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FMostrar.resx">
       <DependentUpon>FMostrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMostrarPagos.resx">
+      <DependentUpon>FMostrarPagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMostrarSocios.resx">
+      <DependentUpon>FMostrarSocios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FPrincipal.resx">
       <DependentUpon>FPrincipal.cs</DependentUpon>

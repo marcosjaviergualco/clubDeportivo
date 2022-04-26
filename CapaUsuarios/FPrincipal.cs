@@ -71,13 +71,58 @@ namespace CapaUsuarios
 
         private void btnGenerarPago_Click(object sender, EventArgs e)
         {
+            FCrearPago fcp = new FCrearPago(cl.Pago, cl.Socios);
+            fcp.ShowDialog();
 
+            Pago pago = fcp.Pago;
+            if (pago != null)
+                cl.agregar(pago);
         }
 
+        // button1 es btnInscribirSocio
         private void button1_Click(object sender, EventArgs e)
         {
             FInscribir fi = new FInscribir(cl.Actividades, cl.Socios);
             fi.ShowDialog();
+        }
+
+        private void btnModificarActividad_Click(object sender, EventArgs e)
+        {
+            FModificarActividad fmi = new FModificarActividad(cl.Actividades, cl.Profesores);
+            fmi.ShowDialog();
+        }
+
+        private void btnListarSocios_Click(object sender, EventArgs e)
+        {
+                FMostrarSocios fms = new FMostrarSocios(cl.Socios);
+                fms.ShowDialog();
+        }
+
+        // button2 es btnBorrarSocioDeActividad
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FBorrarSocioDeActividad fbs = new FBorrarSocioDeActividad(cl.Socios);
+            fbs.ShowDialog();
+        }
+
+        private void btnEliminarActividad_Click(object sender, EventArgs e)
+        {
+            FEliminarActividad fea = new FEliminarActividad(cl.Actividades);
+            fea.ShowDialog();
+            cl.Actividades = fea.Actividades;
+        }
+
+        private void btnEliminarSocio_Click(object sender, EventArgs e)
+        {
+            FBorrarSocio fbs = new FBorrarSocio(cl.Socios);
+            fbs.ShowDialog();
+            cl.Socios = fbs.Socios;
+        }
+
+        private void btnListarPagos_Click(object sender, EventArgs e)
+        {
+            FMostrarPagos fmp = new FMostrarPagos(cl.Pago);
+            fmp.ShowDialog();
         }
     }
 }

@@ -31,11 +31,11 @@ namespace CapaUsuarios
         {
             this.dateTimePickerPago = new System.Windows.Forms.DateTimePicker();
             this.gbCrearPago = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxSocio = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBoxSocio = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnEfectuarPago = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.gbCrearPago.SuspendLayout();
@@ -63,31 +63,14 @@ namespace CapaUsuarios
             this.gbCrearPago.TabStop = false;
             this.gbCrearPago.Text = "Alta de nuevo pago";
             // 
-            // label1
+            // textBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Fecha de pago";
-            // 
-            // comboBoxSocio
-            // 
-            this.comboBoxSocio.FormattingEnabled = true;
-            this.comboBoxSocio.Location = new System.Drawing.Point(39, 123);
-            this.comboBoxSocio.Name = "comboBoxSocio";
-            this.comboBoxSocio.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxSocio.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 107);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Socio";
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(491, 124);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 7;
             // 
             // label4
             // 
@@ -98,14 +81,32 @@ namespace CapaUsuarios
             this.label4.TabIndex = 6;
             this.label4.Text = "Total:";
             // 
-            // textBox1
+            // label3
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(491, 124);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 7;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(39, 107);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Socio";
+            // 
+            // comboBoxSocio
+            // 
+            this.comboBoxSocio.FormattingEnabled = true;
+            this.comboBoxSocio.Location = new System.Drawing.Point(39, 123);
+            this.comboBoxSocio.Name = "comboBoxSocio";
+            this.comboBoxSocio.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxSocio.TabIndex = 3;
+            this.comboBoxSocio.SelectedIndexChanged += new System.EventHandler(this.comboBoxSocio_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(36, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Fecha de pago";
             // 
             // btnEfectuarPago
             // 

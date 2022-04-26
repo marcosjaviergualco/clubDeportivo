@@ -43,3 +43,10 @@ C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\bin\Debug\Excepciones.pd
 C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FCrearPago.resources
 C:\club-deportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FCrearPago.resources
 C:\club-deportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FInscribir.resources
+C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FInscribir.resources
+C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FModificarActividad.resources
+C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FMostrarSocios.resources
+C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FBorrarSocioDeActividad.resources
+C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FEliminarActividad.resources
+C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FBorrarSocio.resources
+C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FMostrarPagos.resources

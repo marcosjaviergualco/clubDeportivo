@@ -26,11 +26,13 @@ namespace CapaNegocio
         public List<Actividad> Actividades
         {
             get { return actividades; }
+            set { actividades = value; }
         }
 
         public List<Socio> Socios
         {
             get { return socios; }
+            set { socios = value; }
         }
 
         public List<Pago> Pago
@@ -43,9 +45,9 @@ namespace CapaNegocio
             get { return profesores; }
         }
 
-        public void agregar(Socio socioClub)
+        public void agregar(Socio socio)
         {
-            socios.Add(socioClub);
+            socios.Add(socio);
         }
 
         public void agregar(Actividad actividad)
@@ -76,6 +78,11 @@ namespace CapaNegocio
                 c = new Club();
             }
             return c;
+        }
+
+        public void removerActividad(Actividad actividad)
+        {
+            actividades.Remove(actividad);
         }
 
     }
