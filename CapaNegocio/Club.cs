@@ -85,5 +85,36 @@ namespace CapaNegocio
             actividades.Remove(actividad);
         }
 
+        public void removerSocioActividad(Actividad actividad)
+        {
+            /* foreach (var unSocio in socios)
+             {
+                 foreach (var unaActividad in unSocio.Actividades)
+                 {
+                     if (unaActividad == actividad)
+                     {
+                         unSocio.eliminateDeLaActividad(unaActividad);
+                     }
+                 }
+             }*/
+
+            actividad.vaciate();
+        }
+
+        public void generarPago(Socio soc, DateTime fecha)
+        {
+            int unId;
+            if (pagos.Count == 0)
+                unId = 1000;
+            else
+                unId = pagos.Last().Id + 1;
+
+            Pago pago = new Pago(unId, soc.devolverCosto(), soc);
+
+            this.agregar(pago);
+        }
+
+
+
     }
 }

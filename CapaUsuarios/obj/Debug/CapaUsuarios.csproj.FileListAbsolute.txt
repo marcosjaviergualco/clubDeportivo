@@ -50,3 +50,4 @@ C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.F
 C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FEliminarActividad.resources
 C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FBorrarSocio.resources
 C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FMostrarPagos.resources
+C:\Users\fl\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FMostrarProfesor.resources

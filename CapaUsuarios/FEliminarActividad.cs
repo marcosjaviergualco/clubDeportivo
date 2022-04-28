@@ -13,12 +13,14 @@ namespace CapaUsuarios
 {
     public partial class FEliminarActividad : Form
     {
-        List<Actividad> actividades;
+        //List<Actividad> actividades;
+        //List<Socio> socios;
+        Actividad actividad;
         public FEliminarActividad(List<Actividad> actividades)
         {
             InitializeComponent();
             comboBoxActividades.DataSource = actividades;
-            this.actividades = actividades;
+            //this.actividades = actividades;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -28,24 +30,38 @@ namespace CapaUsuarios
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            Actividad actividad = ((Actividad)(comboBoxActividades.SelectedItem));
+            actividad = ((Actividad)(comboBoxActividades.SelectedItem));
 
-            List<Socio> socios = actividad.Socios;
-
-            foreach (var item in socios)
+            // todo esto lo debe hacer la actividad en Capa Negocio
+            //socios = actividad.Socios;
+            
+            /*foreach (var item in socios)
             {
                 item.removerActividad(actividad);
             }
 
-            actividades.Remove(actividad);
+            actividades.Remove(actividad); */
+
+            // volver a actualizar el listbox dentro de este evento
 
             this.Close();
         }
 
-        public List<Actividad> Actividades
+        /*public List<Actividad> Actividades
         {
             get { return actividades; }
             set { actividades = value; }
+        }
+
+        public List<Socio> Socios
+        {
+            get { return socios; }
+            set { socios = value; }
+        }*/
+
+        public Actividad Actividad
+        {
+            get { return actividad; }
         }
     }
 }

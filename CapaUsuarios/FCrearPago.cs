@@ -18,14 +18,14 @@ namespace CapaUsuarios
         private DateTime unaFecha;
         private float unMonto;
         private List<Pago> pagos;
+        private int id;
 
         private Pago pago;
 
-        public FCrearPago(List<Pago> pagos, List<Socio> socios)
+        public FCrearPago(List<Socio> socios)
         {
             InitializeComponent();
             comboBoxSocio.DataSource = socios;
-            this.pagos = pagos;
 
         }
 
@@ -33,20 +33,7 @@ namespace CapaUsuarios
         {
             unSocio = (Socio)comboBoxSocio.SelectedItem;
             DateTime unaFecha = dateTimePickerPago.Value;
-            int unId;
-
-
-            if (pagos.Count == 0)
-                unId = 1000;
-            else
-            {
-                unId = pagos.Last().Id + 1;
-            }
-
-
-
-            pago = new Pago(unId, unSocio.devolverCosto(), unSocio);
-
+            
             this.Close();
         }
 
@@ -58,6 +45,16 @@ namespace CapaUsuarios
         public Pago Pago
         {
             get { return pago; }
+        }
+
+        public Socio Socio
+        {
+            get { return unSocio; }
+        }
+
+        public DateTime Fecha
+        {
+            get { return unaFecha; }
         }
     }
 }

@@ -162,6 +162,7 @@ namespace CapaUsuarios
             this.dateTimePickerHora.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePickerHora.Location = new System.Drawing.Point(193, 174);
             this.dateTimePickerHora.Name = "dateTimePickerHora";
+            this.dateTimePickerHora.ShowUpDown = true;
             this.dateTimePickerHora.Size = new System.Drawing.Size(82, 20);
             this.dateTimePickerHora.TabIndex = 14;
             // 

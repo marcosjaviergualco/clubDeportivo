@@ -112,6 +112,12 @@
     <Compile Include="FMostrarPagos.Designer.cs">
       <DependentUpon>FMostrarPagos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FMostrarProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMostrarProfesor.Designer.cs">
+      <DependentUpon>FMostrarProfesor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FMostrarSocios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FMostrarPagos.resx">
       <DependentUpon>FMostrarPagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMostrarProfesor.resx">
+      <DependentUpon>FMostrarProfesor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FMostrarSocios.resx">
       <DependentUpon>FMostrarSocios.cs</DependentUpon>

@@ -19,7 +19,13 @@ namespace CapaNegocio
 
         public override string ToString()
         {
-            return legajo + " - " + nombreCompleto;
+            return legajo + " - " + nombreCompleto + " - ";
         }
+
+        public void agregate(Actividad act)
+        {
+            actividadesAsociadas.Add(act);
+        }
+
     }
 }

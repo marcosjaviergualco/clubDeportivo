@@ -30,7 +30,8 @@ namespace CapaUsuarios
             textBoxCosto.Text = ((Actividad)comboBoxActividades.SelectedItem).Costo.ToString();
             dateTimePickerHora.Value = ((Actividad)comboBoxActividades.SelectedItem).Hora;
             comboBoxDia.SelectedItem = ((Actividad)comboBoxActividades.SelectedItem).Dia;
-            comboBoxProfesores.SelectedValue = ((Actividad)comboBoxActividades.SelectedItem).Profesor;
+            //comboBoxProfesores.SelectedValue = ((Actividad)comboBoxActividades.SelectedItem).Profesor;
+            comboBoxProfesores.Text = ((Actividad)comboBoxActividades.SelectedItem).Profesor.ToString();
 
         }
 

@@ -31,9 +31,11 @@ namespace CapaUsuarios
             FCrearSocio fc = new FCrearSocio();
             fc.ShowDialog();
             Socio socio = fc.Socio;
-            if (socio != null)
+            if (socio != null) {
                 cl.agregar(socio);
-        }
+                MessageBox.Show("SOCIO CREADO CON EXITO");
+            }
+    }
 
         private void btnCrearActividad_Click(object sender, EventArgs e)
         {
@@ -42,7 +44,10 @@ namespace CapaUsuarios
             // Agregar a lista de actividades
             Actividad a = fca.Actividad;
             if (a != null)
+            {
                 cl.agregar(a);
+                MessageBox.Show("ACTIVIDAD CREADA SATISFACTORIAMENTE");
+            }
         }
 
         private void btnCrearProfesor_Click(object sender, EventArgs e)
@@ -51,9 +56,11 @@ namespace CapaUsuarios
             fcp.ShowDialog();
             // Agregar a lista de profesores
             Profesor p = fcp.Prof;
-            if (p != null)
+            if (p != null) {
                 cl.agregar(p);
-        }
+                MessageBox.Show("PROFESOR CREADO CON EXITO");
+            }
+    }
 
         private void btnListarActividades_Click(object sender, EventArgs e)
         {
@@ -71,12 +78,11 @@ namespace CapaUsuarios
 
         private void btnGenerarPago_Click(object sender, EventArgs e)
         {
-            FCrearPago fcp = new FCrearPago(cl.Pago, cl.Socios);
+            FCrearPago fcp = new FCrearPago(cl.Socios);
             fcp.ShowDialog();
+            cl.generarPago(fcp.Socio, fcp.Fecha);
+            MessageBox.Show("PAGO GENERADO CORRECTAMENTE");
 
-            Pago pago = fcp.Pago;
-            if (pago != null)
-                cl.agregar(pago);
         }
 
         // button1 es btnInscribirSocio
@@ -109,7 +115,13 @@ namespace CapaUsuarios
         {
             FEliminarActividad fea = new FEliminarActividad(cl.Actividades);
             fea.ShowDialog();
-            cl.Actividades = fea.Actividades;
+            //cl.Actividades = fea.Actividades;
+            //cl.Socios = fea.Socios;
+
+            cl.removerSocioActividad(fea.Actividad);
+            cl.removerActividad(fea.Actividad);
+            MessageBox.Show("ACTIVIDAD BORRADA CON EXITO");
+
         }
 
         private void btnEliminarSocio_Click(object sender, EventArgs e)
@@ -123,6 +135,14 @@ namespace CapaUsuarios
         {
             FMostrarPagos fmp = new FMostrarPagos(cl.Pago);
             fmp.ShowDialog();
+        }
+
+        // button3 es listar profesores
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FMostrarProfesor fmprof = new FMostrarProfesor(cl.Profesores);
+
+            fmprof.ShowDialog();
         }
     }
 }

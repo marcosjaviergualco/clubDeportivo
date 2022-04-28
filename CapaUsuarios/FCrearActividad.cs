@@ -47,6 +47,9 @@ namespace CapaUsuarios
                     textBoxCosto.Focus();
                 }
                 act = new Actividad(unId, unaDesc, unDia, unaHora, unCosto, unaCantMax, prof);
+
+                prof.agregate(act);
+
                 this.Close();
             }
             catch (DescripcionException ex)
