@@ -27,5 +27,15 @@ namespace CapaNegocio
             actividadesAsociadas.Add(act);
         }
 
+        public void removerActividad(Actividad act)
+        {
+            base.actividadesAsociadas.Remove(act);
+        }
+
+        public List<Actividad> ActividadesAsociadas
+        {
+            get { return base.actividadesAsociadas; }
+        }
+
     }
 }

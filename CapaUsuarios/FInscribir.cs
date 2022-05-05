@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio;
+using Excepciones;
 
 namespace CapaUsuarios
 {
@@ -26,6 +27,11 @@ namespace CapaUsuarios
         {
             try
             {
+                Actividad actividad = (Actividad)comboBoxActividades.SelectedItem;
+
+                if (actividad.Socios.Count() == actividad.CantMaxParticipantes)
+                    throw new CantidadMaximaException();
+
                 s = (Socio)comboBoxSocios.SelectedItem;
                 s.inscribir((Actividad)comboBoxActividades.SelectedItem);
 

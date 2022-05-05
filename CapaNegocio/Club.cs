@@ -87,17 +87,6 @@ namespace CapaNegocio
 
         public void removerSocioActividad(Actividad actividad)
         {
-            /* foreach (var unSocio in socios)
-             {
-                 foreach (var unaActividad in unSocio.Actividades)
-                 {
-                     if (unaActividad == actividad)
-                     {
-                         unSocio.eliminateDeLaActividad(unaActividad);
-                     }
-                 }
-             }*/
-
             actividad.vaciate();
         }
 
@@ -114,7 +103,10 @@ namespace CapaNegocio
             this.agregar(pago);
         }
 
-
+        public void removerProfesor(Profesor p)
+        {
+            profesores.Remove(p);
+        }
 
     }
 }

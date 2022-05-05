@@ -32,32 +32,9 @@ namespace CapaUsuarios
         {
             actividad = ((Actividad)(comboBoxActividades.SelectedItem));
 
-            // todo esto lo debe hacer la actividad en Capa Negocio
-            //socios = actividad.Socios;
-            
-            /*foreach (var item in socios)
-            {
-                item.removerActividad(actividad);
-            }
-
-            actividades.Remove(actividad); */
-
-            // volver a actualizar el listbox dentro de este evento
-
             this.Close();
         }
 
-        /*public List<Actividad> Actividades
-        {
-            get { return actividades; }
-            set { actividades = value; }
-        }
-
-        public List<Socio> Socios
-        {
-            get { return socios; }
-            set { socios = value; }
-        }*/
 
         public Actividad Actividad
         {

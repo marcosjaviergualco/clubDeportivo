@@ -14,11 +14,6 @@ namespace CapaUsuarios
     public partial class FPrincipal : Form
     {
         private Club cl;
-        /*private List<Actividad> actividades;
-        private List<Socio> socios;
-        private List<Pago> pagos;
-        private List<Profesor> profesores;
-        */
 
         public FPrincipal()
         {
@@ -115,8 +110,6 @@ namespace CapaUsuarios
         {
             FEliminarActividad fea = new FEliminarActividad(cl.Actividades);
             fea.ShowDialog();
-            //cl.Actividades = fea.Actividades;
-            //cl.Socios = fea.Socios;
 
             cl.removerSocioActividad(fea.Actividad);
             cl.removerActividad(fea.Actividad);
@@ -143,6 +136,8 @@ namespace CapaUsuarios
             FMostrarProfesor fmprof = new FMostrarProfesor(cl.Profesores);
 
             fmprof.ShowDialog();
+
+            cl.removerProfesor(fmprof.Profesor);
         }
     }
 }

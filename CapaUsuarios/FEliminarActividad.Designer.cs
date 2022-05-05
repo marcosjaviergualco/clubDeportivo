@@ -40,7 +40,7 @@ namespace CapaUsuarios
             this.comboBoxActividades.FormattingEnabled = true;
             this.comboBoxActividades.Location = new System.Drawing.Point(116, 75);
             this.comboBoxActividades.Name = "comboBoxActividades";
-            this.comboBoxActividades.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxActividades.Size = new System.Drawing.Size(310, 21);
             this.comboBoxActividades.TabIndex = 0;
             // 
             // label1

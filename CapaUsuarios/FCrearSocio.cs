@@ -26,37 +26,30 @@ namespace CapaUsuarios
             try
             {
                 string unDni = this.maskedTextDni.Text;
+
                 string unNom = this.textNombreCompleto.Text;
+
                 DateTime fn = this.dateTimeFechaNac.Value;
+
                 char g;
                 if (this.radioF.Checked)
                     g = 'F';
                 else
                     g = 'M';
                 string unDom = this.textDomicilio.Text;
-                string tipoDeSocio = this.comboBoxTipoSocio.Text;
-                if (tipoDeSocio == "Socio Club")
-                {
-                    float unaCuotaSocial = float.Parse(this.textBoxCuotaSocial.Text);
-                    soc = new SocioClub(unDni, unNom, g, fn, unDom, unaCuotaSocial);
 
-                    if (unaCuotaSocial == 0)
-                    {
-                        throw new CostoException();
-                    }
-                }
-                else
-                {
-                    soc = new SocioActividad(unDni, unNom, g, fn, unDom);
-                }
+                string tipoDeSocio = this.comboBoxTipoSocio.Text;
 
                 if (unNom.Length == 0)
                     throw new NombreException();
 
                 string format1Dni = unDni.Replace(" ", "");
-                string format2Dni = format1Dni.Replace(",", "");
+
+                string format2Dni = format1Dni.Replace(".", "");
+
                 if (format2Dni.Length == 0)
                     throw new DniException();
+
 
                 if (unDom.Length == 0)
                 {
@@ -64,7 +57,32 @@ namespace CapaUsuarios
                     textDomicilio.Focus();
                 }
 
-                
+                if (tipoDeSocio == "")
+                {
+                    throw new TipoSocioException();
+                    comboBoxTipoSocio.Focus();
+                }
+
+                if (tipoDeSocio == "Socio Club")
+                {
+                    float unaCuotaSocial;
+
+                    if (this.textBoxCuotaSocial.Text == "")
+                        unaCuotaSocial = 0;
+                    else
+                        unaCuotaSocial = float.Parse(textBoxCuotaSocial.Text);
+
+                    if (unaCuotaSocial == 0)
+                    {
+                        throw new CostoException();
+                    }
+                    soc = new SocioClub(unDni, unNom, g, fn, unDom, unaCuotaSocial);
+                }
+
+                else
+                {
+                    soc = new SocioActividad(unDni, unNom, g, fn, unDom);
+                }
                 this.Close();
             }
             catch (NombreException ex)
@@ -72,16 +90,19 @@ namespace CapaUsuarios
                 MessageBox.Show(ex.Message);
                 textNombreCompleto.Focus();
             }
+
             catch (DniException ex)
             {
                 MessageBox.Show(ex.Message);
                 maskedTextDni.Focus();
             }
+
             catch (DomicilioException ex)
             {
                 MessageBox.Show(ex.Message);
                 maskedTextDni.Focus();
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);

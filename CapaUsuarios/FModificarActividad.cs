@@ -30,8 +30,10 @@ namespace CapaUsuarios
             textBoxCosto.Text = ((Actividad)comboBoxActividades.SelectedItem).Costo.ToString();
             dateTimePickerHora.Value = ((Actividad)comboBoxActividades.SelectedItem).Hora;
             comboBoxDia.SelectedItem = ((Actividad)comboBoxActividades.SelectedItem).Dia;
-            //comboBoxProfesores.SelectedValue = ((Actividad)comboBoxActividades.SelectedItem).Profesor;
-            comboBoxProfesores.Text = ((Actividad)comboBoxActividades.SelectedItem).Profesor.ToString();
+            if (((Actividad)comboBoxActividades.SelectedItem).Profesor != null)
+                comboBoxProfesores.Text = ((Actividad)comboBoxActividades.SelectedItem).Profesor.ToString();
+            else
+                comboBoxProfesores.Text = "";
 
         }
 
@@ -39,13 +41,6 @@ namespace CapaUsuarios
         {
             try
             {
-                /*string unaDesc = this.textBoxDesc.Text;
-                string unDia = this.comboBoxDia.SelectedItem.ToString();
-                DateTime unaHora = this.dateTimePickerHora.Value;
-                float unCosto = float.Parse(this.textBoxCosto.Text);
-                int unaCantMax = int.Parse(this.textBoxCantMax.Text);
-                Profesor prof = (Profesor)listBoxProfesores.SelectedItem;
-                */
 
                 ((Actividad)comboBoxActividades.SelectedItem).Descripcion = textBoxDesc.Text;
                 ((Actividad)comboBoxActividades.SelectedItem).Dia = comboBoxDia.SelectedItem.ToString();
@@ -53,6 +48,8 @@ namespace CapaUsuarios
                 ((Actividad)comboBoxActividades.SelectedItem).Costo = float.Parse(this.textBoxCosto.Text);
                 ((Actividad)comboBoxActividades.SelectedItem).CantMaxParticipantes = int.Parse(this.textBoxCantMax.Text);
                 ((Actividad)comboBoxActividades.SelectedItem).Profesor = (Profesor)comboBoxProfesores.SelectedItem;
+                if (((Actividad)comboBoxActividades.SelectedItem).Profesor != null)
+                    ((Actividad)comboBoxActividades.SelectedItem).Profesor.agregate((Actividad)comboBoxActividades.SelectedItem);
 
                 if (textBoxDesc.Text.Length == 0)
                 {

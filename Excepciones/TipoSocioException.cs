@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Excepciones
+{
+    public class TipoSocioException:Exception
+    {
+        public TipoSocioException()
+            :base("Debe seleccionar un tipo de socio.")
+        {
+        }
+
+
+    }
+}

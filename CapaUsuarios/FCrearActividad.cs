@@ -48,7 +48,8 @@ namespace CapaUsuarios
                 }
                 act = new Actividad(unId, unaDesc, unDia, unaHora, unCosto, unaCantMax, prof);
 
-                prof.agregate(act);
+                if (prof != null)
+                    prof.agregate(act);
 
                 this.Close();
             }

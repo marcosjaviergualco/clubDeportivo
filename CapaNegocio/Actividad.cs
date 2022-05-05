@@ -33,7 +33,10 @@ namespace CapaNegocio
         public override string ToString()
         {
             // no funciona el \n (new line)
-            return descripcion+" "+costo+" "+dia+" "+profesor.ToString();
+            if (profesor != null)
+                return descripcion+" "+costo+" "+dia+" "+profesor.ToString();
+            else
+                return descripcion + " " + costo + " " + dia + " " + " SIN PROFESOR";
         }
 
         public float Costo
@@ -93,12 +96,18 @@ namespace CapaNegocio
             socios.Remove(soc);
         }
 
+        public void removerProfe()
+        {
+            profesor = null;
+        }
+
         public void vaciate()
         {
             foreach (var unSocio in socios)
             {
                 unSocio.eliminateDeLaActividad(this);
             }
+            profesor.removerActividad(this);
         }
 
         public void agregar(Socio s)
