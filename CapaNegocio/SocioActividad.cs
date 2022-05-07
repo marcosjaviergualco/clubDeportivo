@@ -14,5 +14,23 @@ namespace CapaNegocio
         {
 
         }
+
+        public override float devolverCosto()
+        {
+            List<Actividad> lista = base.actividadesAsociadas;
+            float total = 0;
+
+            foreach (var item in lista)
+            {
+                total = total + item.Costo;
+            }
+
+            return total;
+        }
+
+        public override void inscribir(Actividad act)
+        {
+            base.actividadesAsociadas.Add(act);
+        }
     }
 }

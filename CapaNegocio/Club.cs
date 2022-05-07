@@ -23,6 +23,48 @@ namespace CapaNegocio
             pagos = new List<Pago>();
         }
 
+        public List<Actividad> Actividades
+        {
+            get { return actividades; }
+            set { actividades = value; }
+        }
+
+        public List<Socio> Socios
+        {
+            get { return socios; }
+            set { socios = value; }
+        }
+
+        public List<Pago> Pago
+        {
+            get { return pagos; }
+        }
+
+        public List<Profesor> Profesores
+        {
+            get { return profesores; }
+        }
+
+        public void agregar(Socio socio)
+        {
+            socios.Add(socio);
+        }
+
+        public void agregar(Actividad actividad)
+        {
+            actividades.Add(actividad);
+        }
+
+        public void agregar(Profesor profesor)
+        {
+            profesores.Add(profesor);
+        }
+
+        public void agregar(Pago pago)
+        {
+            pagos.Add(pago);
+        }
+
         public bool Guardar()
         {
            return Datos.Guardar(this);
@@ -37,5 +79,34 @@ namespace CapaNegocio
             }
             return c;
         }
+
+        public void removerActividad(Actividad actividad)
+        {
+            actividades.Remove(actividad);
+        }
+
+        public void removerSocioActividad(Actividad actividad)
+        {
+            actividad.vaciate();
+        }
+
+        public void generarPago(Socio soc, DateTime fecha)
+        {
+            int unId;
+            if (pagos.Count == 0)
+                unId = 1000;
+            else
+                unId = pagos.Last().Id + 1;
+
+            Pago pago = new Pago(unId, soc.devolverCosto(), soc);
+
+            this.agregar(pago);
+        }
+
+        public void removerProfesor(Profesor p)
+        {
+            profesores.Remove(p);
+        }
+
     }
 }

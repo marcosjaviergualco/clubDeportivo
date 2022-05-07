@@ -23,11 +23,16 @@ namespace CapaNegocio
     {
         dni = unDni;
         nombreCompleto = unNombreCompleto;
-            genero = unGenero;
-            fechaNac = unaFechaNac;
-            domicilio = unDomicilio;
-            actividadesAsociadas = null;
+        genero = unGenero;
+        fechaNac = unaFechaNac;
+        domicilio = unDomicilio;
+        actividadesAsociadas = new List<Actividad>();
     }
+
+    public List<Actividad> Actividades
+        {
+            get { return actividadesAsociadas; }
+        }
 
     }
 }

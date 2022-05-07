@@ -8,12 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio;
+using Excepciones;
 
 namespace CapaUsuarios
 {
     public partial class FCrearSocio : Form
     {
-        private FCrearSocio soc;
+        private Socio soc;
         public FCrearSocio()
         {
             InitializeComponent();
@@ -22,29 +23,90 @@ namespace CapaUsuarios
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
-            string unDni = this.maskedTextDni.Text;
-            string unNom = this.textNombreCompleto.Text;
-            DateTime fn = this.dateTimeFechaNac.Value;
-            char g;
-            if (this.radioF.Checked)
-                g = 'F';
-            else
-                g = 'M';
-            string unDom = this.textDomicilio.Text;
-            string tipoDeSocio = this.comboBoxTipoSocio.Text;
-            Socio soc;
-            if (tipoDeSocio == "Socio Club")
+            try
             {
-               float unaCuotaSocial = float.Parse(this.textBoxCuotaSocial.Text);
-               soc = new SocioClub(unDni, unNom, g, fn, unDom, unaCuotaSocial);
-            }
-            else
-            {
-                soc = new SocioActividad(unDni, unNom, g, fn, unDom);
-            }    
-            
-            
+                string unDni = this.maskedTextDni.Text;
 
+                string unNom = this.textNombreCompleto.Text;
+
+                DateTime fn = this.dateTimeFechaNac.Value;
+
+                char g;
+                if (this.radioF.Checked)
+                    g = 'F';
+                else
+                    g = 'M';
+                string unDom = this.textDomicilio.Text;
+
+                string tipoDeSocio = this.comboBoxTipoSocio.Text;
+
+                if (unNom.Length == 0)
+                    throw new NombreException();
+
+                string format1Dni = unDni.Replace(" ", "");
+
+                string format2Dni = format1Dni.Replace(".", "");
+
+                if (format2Dni.Length == 0)
+                    throw new DniException();
+
+
+                if (unDom.Length == 0)
+                {
+                    throw new DomicilioException();
+                    textDomicilio.Focus();
+                }
+
+                if (tipoDeSocio == "")
+                {
+                    throw new TipoSocioException();
+                    comboBoxTipoSocio.Focus();
+                }
+
+                if (tipoDeSocio == "Socio Club")
+                {
+                    float unaCuotaSocial;
+
+                    if (this.textBoxCuotaSocial.Text == "")
+                        unaCuotaSocial = 0;
+                    else
+                        unaCuotaSocial = float.Parse(textBoxCuotaSocial.Text);
+
+                    if (unaCuotaSocial == 0)
+                    {
+                        throw new CostoException();
+                    }
+                    soc = new SocioClub(unDni, unNom, g, fn, unDom, unaCuotaSocial);
+                }
+
+                else
+                {
+                    soc = new SocioActividad(unDni, unNom, g, fn, unDom);
+                }
+                this.Close();
+            }
+            catch (NombreException ex)
+            {
+                MessageBox.Show(ex.Message);
+                textNombreCompleto.Focus();
+            }
+
+            catch (DniException ex)
+            {
+                MessageBox.Show(ex.Message);
+                maskedTextDni.Focus();
+            }
+
+            catch (DomicilioException ex)
+            {
+                MessageBox.Show(ex.Message);
+                maskedTextDni.Focus();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void comboBoxTipoSocio_SelectedValueChanged(object sender, EventArgs e)
@@ -64,6 +126,11 @@ namespace CapaUsuarios
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public Socio Socio
+        {
+            get { return soc; }
         }
     }
 }

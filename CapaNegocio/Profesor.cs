@@ -16,5 +16,26 @@ namespace CapaNegocio
         {
             legajo = unLegajo;
         }
+
+        public override string ToString()
+        {
+            return legajo + " - " + nombreCompleto + " - ";
+        }
+
+        public void agregate(Actividad act)
+        {
+            actividadesAsociadas.Add(act);
+        }
+
+        public void removerActividad(Actividad act)
+        {
+            base.actividadesAsociadas.Remove(act);
+        }
+
+        public List<Actividad> ActividadesAsociadas
+        {
+            get { return base.actividadesAsociadas; }
+        }
+
     }
 }
