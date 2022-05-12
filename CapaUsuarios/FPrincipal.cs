@@ -14,12 +14,17 @@ namespace CapaUsuarios
     public partial class FPrincipal : Form
     {
         private Club cl;
+        string lugarBase;
 
         public FPrincipal()
         {
             InitializeComponent();
-            cl = Club.Recuperar();
+           // cl = Club.Recuperar();
+            cl.PonerPathABaseAccess(lugarBase);
+            cl = new Club();
+          
         }
+
 
         private void btnCrearSocio_Click(object sender, EventArgs e)
         {
