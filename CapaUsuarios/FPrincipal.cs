@@ -19,8 +19,9 @@ namespace CapaUsuarios
         public FPrincipal()
         {
             InitializeComponent();
+            lugarBase = Application.StartupPath;
            // cl = Club.Recuperar();
-            cl.PonerPathABaseAccess(lugarBase);
+            Club.PonerPathABaseAccess(lugarBase);
             cl = new Club();
           
         }
