@@ -114,5 +114,11 @@ namespace CapaNegocio
         {
             socios.Add(s);
         }
+
+
+
+   
     }
+
+
 }

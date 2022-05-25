@@ -23,7 +23,8 @@ namespace CapaUsuarios
            // cl = Club.Recuperar();
             Club.PonerPathABaseAccess(lugarBase);
             cl = new Club();
-          
+           // cl.RecuperarDatos()
+           
         }
 
 

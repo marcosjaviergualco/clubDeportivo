@@ -10,3 +10,9 @@ C:\Users\fl\Documents\GitHub\clubDeportivo\Excepciones\obj\Debug\Excepciones.csp
 C:\Users\fl\Documents\GitHub\clubDeportivo\Excepciones\obj\Debug\Excepciones.csproj.CoreCompileInputs.cache
 C:\Users\fl\Documents\GitHub\clubDeportivo\Excepciones\obj\Debug\Excepciones.dll
 C:\Users\fl\Documents\GitHub\clubDeportivo\Excepciones\obj\Debug\Excepciones.pdb
+C:\Users\BAVALOS\Documents\GitHub\clubDeportivo\Excepciones\bin\Debug\Excepciones.dll
+C:\Users\BAVALOS\Documents\GitHub\clubDeportivo\Excepciones\bin\Debug\Excepciones.pdb
+C:\Users\BAVALOS\Documents\GitHub\clubDeportivo\Excepciones\obj\Debug\Excepciones.csproj.AssemblyReference.cache
+C:\Users\BAVALOS\Documents\GitHub\clubDeportivo\Excepciones\obj\Debug\Excepciones.csproj.CoreCompileInputs.cache
+C:\Users\BAVALOS\Documents\GitHub\clubDeportivo\Excepciones\obj\Debug\Excepciones.dll
+C:\Users\BAVALOS\Documents\GitHub\clubDeportivo\Excepciones\obj\Debug\Excepciones.pdb
