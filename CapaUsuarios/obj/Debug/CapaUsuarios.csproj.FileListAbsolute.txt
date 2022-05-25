@@ -82,3 +82,10 @@ C:\Users\BAVALOS\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuar
 C:\Users\BAVALOS\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.csproj.CopyComplete
 C:\Users\BAVALOS\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.exe
 C:\Users\BAVALOS\Documents\GitHub\clubDeportivo\CapaUsuarios\obj\Debug\CapaUsuarios.pdb
+C:\club-deportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FBorrarSocio.resources
+C:\club-deportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FBorrarSocioDeActividad.resources
+C:\club-deportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FEliminarActividad.resources
+C:\club-deportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FModificarActividad.resources
+C:\club-deportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FMostrarPagos.resources
+C:\club-deportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FMostrarProfesor.resources
+C:\club-deportivo\CapaUsuarios\obj\Debug\CapaUsuarios.FMostrarSocios.resources

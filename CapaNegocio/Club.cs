@@ -184,18 +184,17 @@ namespace CapaNegocio
                    
                 }
 
-             //Ver las actividades x socio
                 ArrayList actividades_socio = buscaTusActividades(unDni);
 
-                if (actividades_socio != null)
+                if (actividades_socio.Count != 0)
                 {
                     for (int a = 0; a < actividades_socio.Count; a++)
                     {
-                        for(int b=0; b < actividades.Count; b++)
+                        for(int b=0; b < Actividades.Count; b++)
                         {
-                            if (actividades[b].Id == int.Parse(actividades_socio[a].ToString()))
+                            if (Actividades[b].Id == int.Parse(actividades_socio[a].ToString()))
                             {
-                                socio.inscribir(actividades[b]);
+                                socio.inscribir(Actividades[b]);
                             }
                         }
                         
@@ -231,7 +230,7 @@ namespace CapaNegocio
                 Profesor unProfesor = null;
 
  
-                if (profesor != null)
+                if (profesor.Count != 0)
                 {
                     string unDni;
                     string unNombreCompleto;
@@ -259,14 +258,12 @@ namespace CapaNegocio
             }
         public static ArrayList buscaTusActividades(string unDni)
         {
-            ArrayList actividades_id =null;
+            ArrayList actividades_id = new ArrayList();
             ArrayList actividades = null;
             actividades = Db_datos.BuscarActividadesDeSocio(unDni);
             
-
-            if (actividades != null)
+            if (actividades.Count != 0 || actividades != null)
             {
-                //corregir
                 int id_actividad;
 
                 for (int a = 0; a < actividades.Count; a = a + 2)
@@ -276,7 +273,7 @@ namespace CapaNegocio
                 }
             }
 
-            return actividades;
+            return actividades_id;
 
 
         }

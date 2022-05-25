@@ -216,10 +216,8 @@ namespace CapaDatos
         public static ArrayList BuscarActividadesDeSocio(string unDni)
         {
             ArrayList datos = new ArrayList();
-            datos = null;
             try
             {
-                // CONSULTA OK - VER FALLA EN EL FOR.
                 string strCmd = "SELECT * FROM Actividad_Socio WHERE dni_socio='" + unDni + "'";
                 Con = new OleDbConnection(Str);
                 Con.Open();
