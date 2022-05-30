@@ -81,14 +81,11 @@ namespace CapaDatos
 
         public static ArrayList RecuperarProfesores()
         {
-
-
             ArrayList datos = new ArrayList();
 
             try
             {
-
-                string strCmd = "SELECT * FROM Profesor ORDER BY legajo";
+                string strCmd = "SELECT * FROM Profesor ORDER BY id_legajo";
                 Con = new OleDbConnection(Str);
                 Con.Open();
                 Da = new OleDbDataAdapter(strCmd, Con);
@@ -99,7 +96,10 @@ namespace CapaDatos
                 {
                     datos.Add(Ds.Tables[0].Rows[i].ItemArray[0].ToString());
                     datos.Add(Ds.Tables[0].Rows[i].ItemArray[1].ToString());
-
+                    datos.Add(Ds.Tables[0].Rows[i].ItemArray[2].ToString());
+                    datos.Add(Ds.Tables[0].Rows[i].ItemArray[3].ToString());
+                    datos.Add(Ds.Tables[0].Rows[i].ItemArray[4].ToString());
+                    datos.Add(Ds.Tables[0].Rows[i].ItemArray[5].ToString());
                 }
                 Con.Close();
                 Ds.Dispose();
@@ -110,8 +110,6 @@ namespace CapaDatos
                 string error = ex.Message;
             }
             return datos;
-
-
         }
 
         public static ArrayList RecuperarActividades()

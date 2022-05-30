@@ -23,6 +23,7 @@ namespace CapaNegocio
             profesores = new List<Profesor>();
             pagos = new List<Pago>();
             this.recuperarTodo();
+            this.recuperarProfesores();
         }
 
         public List<Actividad> Actividades
@@ -278,11 +279,35 @@ namespace CapaNegocio
 
         }
 
+        public void recuperarProfesores(){
+            ArrayList profesoresBD = Db_datos.RecuperarProfesores();
+            Profesor unProfesor = null;
 
+            if (profesoresBD.Count != 0)
+            {
+                string id_legajo;
+                string nombre_completo;
+                string unDomicilio;
+                char unGenero;
+                DateTime fecha_de_nacimiento;
+                string dni_profesor;
+                string characters;
 
+                for (int a = 0; a < profesoresBD.Count; a = a + 6)
+                {
+                    id_legajo = profesoresBD[a].ToString();
+                    nombre_completo = profesoresBD[a + 1].ToString();
+                    unDomicilio = profesoresBD[a + 2].ToString();
+                    characters = profesoresBD[a + 3].ToString();
+                    unGenero = characters.ToCharArray()[0];
+                    fecha_de_nacimiento = DateTime.ParseExact(profesoresBD[a + 4].ToString(), "d/M/yyyy HH:mm:ss", null);
+                    dni_profesor = profesoresBD[a + 5].ToString();
 
-
-
+                    unProfesor = new Profesor(dni_profesor, nombre_completo, unGenero, fecha_de_nacimiento, unDomicilio, id_legajo);
+                }
+                profesores.Add(unProfesor);
+            }
+        }
 
 
         }
