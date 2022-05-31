@@ -13,10 +13,12 @@ namespace CapaUsuarios
 {
     public partial class FBorrarSocioDeActividad : Form
     {
-        public FBorrarSocioDeActividad(List<Socio> socios)
+        Club club;
+        public FBorrarSocioDeActividad(List<Socio> socios, Club club)
         {
             InitializeComponent();
             comboBoxSocios.DataSource = socios;
+            this.club = club;
         }
 
         private void comboBoxSocios_SelectedIndexChanged(object sender, EventArgs e)
@@ -30,6 +32,8 @@ namespace CapaUsuarios
             ((Actividad)listBoxActividades.SelectedItem).removerSocio((Socio)comboBoxSocios.SelectedItem);
 
             ((Socio)comboBoxSocios.SelectedItem).removerActividad((Actividad)listBoxActividades.SelectedItem);
+
+            club.desinscribir((Actividad)listBoxActividades.SelectedItem, (Socio)comboBoxSocios.SelectedItem);
 
             this.Close();
         }

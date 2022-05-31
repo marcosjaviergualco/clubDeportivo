@@ -13,12 +13,14 @@ namespace CapaUsuarios
 {
     public partial class FBorrarSocio : Form
     {
+        Club club;
         List<Socio> socios;
-        public FBorrarSocio(List<Socio> socios)
+        public FBorrarSocio(List<Socio> socios, Club club)
         {
             InitializeComponent();
             comboBoxSocios.DataSource = socios;
             this.socios = socios;
+            this.club = club;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -34,9 +36,11 @@ namespace CapaUsuarios
             foreach (var item in actividades)
             {
                 item.removerSocio(soc);
+                this.club.desinscribir(item, soc); // llama a desinscribir despues de remover al socio de la actividad en memoria
             }
 
-            this.socios.Remove(soc);
+            //this.socios.Remove(soc);
+            this.club.removerSocio(soc);
 
             this.Close();
         }

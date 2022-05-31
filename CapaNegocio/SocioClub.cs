@@ -43,5 +43,15 @@ namespace CapaNegocio
         {
             return base.actividadesAsociadas.Count;
         }
+
+        public float CuotaSocial
+        {
+            get { return cuotaSocial; }
+        }
+
+        public override bool sosSocClub()
+        {
+            return true;
+        }
     }
 }

@@ -32,7 +32,7 @@ namespace CapaUsuarios
         private void btnEfectuarPago_Click(object sender, EventArgs e)
         {
             unSocio = (Socio)comboBoxSocio.SelectedItem;
-            DateTime unaFecha = dateTimePickerPago.Value;
+            unaFecha = dateTimePickerPago.Value;
             
             this.Close();
         }
@@ -55,6 +55,11 @@ namespace CapaUsuarios
         public DateTime Fecha
         {
             get { return unaFecha; }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

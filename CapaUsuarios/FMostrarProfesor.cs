@@ -14,10 +14,12 @@ namespace CapaUsuarios
     public partial class FMostrarProfesor : Form
     {
         Profesor p;
-        public FMostrarProfesor(List<Profesor> profesores)
+        Club club;
+        public FMostrarProfesor(List<Profesor> profesores, Club club)
         {
             InitializeComponent();
             listBox1.DataSource = profesores;
+            this.club = club;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -39,7 +41,10 @@ namespace CapaUsuarios
             foreach (var item in actividades)
             {
                 item.removerProfe();
+                this.club.modificar(item); // llama a modificar despues de que remover al profe de la actividad en memoria
             }
+
+            this.club.removerProfesor(p);
 
             this.Close();
         }

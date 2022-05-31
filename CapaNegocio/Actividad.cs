@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CapaDatos;
 
 namespace CapaNegocio
 {
@@ -105,9 +106,11 @@ namespace CapaNegocio
         {
             foreach (var unSocio in socios)
             {
+                Db_datos.desinscribir(this.id, unSocio.Dni); // por cada socio de la actividad se elimina su tupla en la tabla Actividad_Socio
                 unSocio.eliminateDeLaActividad(this);
             }
-            profesor.removerActividad(this);
+            if (profesor!= null)
+                profesor.removerActividad(this);
         }
 
         public void agregar(Socio s)

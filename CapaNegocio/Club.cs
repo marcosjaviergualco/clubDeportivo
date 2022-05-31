@@ -24,6 +24,7 @@ namespace CapaNegocio
             pagos = new List<Pago>();
             this.recuperarTodo();
             this.recuperarProfesores();
+            this.recuperarPagos();
         }
 
         public List<Actividad> Actividades
@@ -48,9 +49,12 @@ namespace CapaNegocio
             get { return profesores; }
         }
 
-        public void agregar(Socio socio)
+        public bool agregar(Socio socio)
         {
+            bool status = Db_datos.insertarSocio(pasarseSocioARelacional(socio));
             socios.Add(socio);
+
+            return status;
         }
 
         public bool agregar(Actividad actividad)
@@ -76,6 +80,20 @@ namespace CapaNegocio
             return todoBien;
         }
 
+        public bool inscribir(Actividad act, Socio soc)
+        {
+            bool todoBien = false;
+            if (act != null && soc != null)
+                todoBien = Db_datos.inscribir(this.pasarseActividadARelacional(act), this.pasarseSocioARelacional(soc));
+
+            return todoBien;
+        }
+
+        public void desinscribir(Actividad act, Socio soc)
+        {
+            Db_datos.desinscribir(act.Id, soc.Dni);
+        }
+
         public ArrayList pasarseActividadARelacional(Actividad act)
         {
             ArrayList datos = new ArrayList();
@@ -97,9 +115,53 @@ namespace CapaNegocio
             return datos;
         }
 
-        public void agregar(Profesor profesor)
+        public ArrayList pasarseSocioARelacional(Socio soc)
         {
+            ArrayList datos = new ArrayList();
+            datos.Add(soc.Dni);
+            datos.Add(soc.NombreCompleto);
+            datos.Add(soc.Genero);
+            datos.Add(soc.FechaNac);
+            datos.Add(soc.Domicilio);
+            if (soc.sosSocClub())
+                datos.Add(((SocioClub)soc).CuotaSocial); //le pregunto si es socio club y si es, casteo a SocioClub y le pido la cuota
+            else
+                datos.Add(0);
+
+            return datos;
+        }
+
+        public ArrayList pasarsePagoARelacional(Pago pago)
+        {
+            ArrayList datos = new ArrayList();
+            datos.Add(pago.Id);
+            datos.Add(pago.Monto);
+            datos.Add(pago.TipoMoneda);
+            datos.Add(pago.FechaPago);
+            datos.Add(pago.Socio.Dni);
+
+            return datos;
+        }
+
+        public ArrayList pasarseProfesorARelacional(Profesor profesor)
+        {
+            ArrayList datos = new ArrayList();
+            datos.Add(profesor.Legajo);
+            datos.Add(profesor.NombreCompleto);
+            datos.Add(profesor.Domicilio);
+            datos.Add(profesor.Genero);
+            datos.Add(profesor.FechaNac);
+            datos.Add(profesor.Dni);
+
+            return datos;
+        }
+
+        public bool agregar(Profesor profesor)
+        {
+            bool status = Db_datos.insertarProfesor(pasarseProfesorARelacional(profesor));
             profesores.Add(profesor);
+
+            return status;
         }
 
         public void agregar(Pago pago)
@@ -130,25 +192,42 @@ namespace CapaNegocio
 
         public void removerSocioActividad(Actividad actividad)
         {
-            actividad.vaciate();
+            if (actividad!=null)
+                actividad.vaciate();
         }
 
-        public void generarPago(Socio soc, DateTime fecha)
+        public bool generarPago(Socio soc, DateTime fecha)
         {
+            bool status = false;
             int unId;
             if (pagos.Count == 0)
                 unId = 1000;
             else
                 unId = pagos.Last().Id + 1;
 
-            Pago pago = new Pago(unId, soc.devolverCosto(), soc);
+            Pago pago = null;
+            if(soc!=null)
+                pago = new Pago(unId, soc.devolverCosto(), soc, fecha);
 
-            this.agregar(pago);
+            if (pago != null)
+            {
+                this.agregar(pago);
+
+                status = Db_datos.crearPago(pasarsePagoARelacional(pago));
+            }
+
+            return status;
         }
 
         public void removerProfesor(Profesor p)
         {
+            Db_datos.borrarProfesor(p.Legajo);
             profesores.Remove(p);
+        }
+        public void removerSocio(Socio soc)
+        {
+            Db_datos.borrarSocio(soc.Dni);
+            socios.Remove(soc);
         }
 
         //Base de datos
@@ -318,6 +397,27 @@ namespace CapaNegocio
 
 
         }
+        public static ArrayList buscaTusActividadesProfesor(string unLegajo)
+        {
+            ArrayList actividades_id = new ArrayList();
+            ArrayList actividades = null;
+            actividades = Db_datos.BuscarActividadesDeProfe(unLegajo);
+
+            if (actividades.Count != 0 || actividades != null)
+            {
+                int id_actividad;
+
+                for (int a = 0; a < actividades.Count; a++)
+                {
+                    id_actividad = int.Parse(actividades[a].ToString());
+                    actividades_id.Add(id_actividad);
+                }
+            }
+
+            return actividades_id;
+
+
+        }
 
         public void recuperarProfesores(){
             ArrayList profesoresBD = Db_datos.RecuperarProfesores();
@@ -344,13 +444,76 @@ namespace CapaNegocio
                     dni_profesor = profesoresBD[a + 5].ToString();
 
                     unProfesor = new Profesor(dni_profesor, nombre_completo, unGenero, fecha_de_nacimiento, unDomicilio, id_legajo);
+
+                    ArrayList actividades_profe = buscaTusActividadesProfesor(id_legajo);
+
+                    if (actividades_profe.Count != 0)
+                    {
+                        for (int b = 0; b < actividades_profe.Count; b++)
+                        {
+                            for (int c = 0; c < Actividades.Count; c++)
+                            {
+                                if (Actividades[c].Id == int.Parse(actividades_profe[b].ToString()))
+                                {
+                                    unProfesor.agregate(Actividades[c]);
+                                }
+                            }
+
+
+                        }
+
+                    }
+
+                    profesores.Add(unProfesor);
                 }
-                profesores.Add(unProfesor);
+                
             }
         }
 
+        public void recuperarPagos()
+        {
+            ArrayList datosPagos = Db_datos.RecuperarPagos();
+            Pago unPago = null;
 
+            if (datosPagos.Count != 0)
+            {
+                int id_pago;
+                float monto;
+                string tipo_moneda;
+                DateTime fecha_pago;
+                string dni_socio;
+
+                for (int a = 0; a < datosPagos.Count; a = a + 5)
+                {
+                    id_pago = int.Parse(datosPagos[a].ToString());
+                    monto = float.Parse(datosPagos[a+1].ToString());
+                    tipo_moneda = datosPagos[a+2].ToString();
+                    fecha_pago = DateTime.ParseExact(datosPagos[a+3].ToString(), "d/M/yyyy HH:mm:ss", null);
+                    dni_socio = datosPagos[a+4].ToString();
+                    Socio socio = buscarSocio(dni_socio);
+                    unPago = new Pago(id_pago, monto, socio, fecha_pago);
+                    pagos.Add(unPago);
+                }
+                
+            }
         }
+
+        public Socio buscarSocio(string dni_socio)
+        {
+            string dniAux = null;
+            int i = 0;
+
+            do
+            {
+                dniAux = ((Socio)socios[i]).Dni;
+                i++;
+
+            } while (dniAux != dni_socio);
+
+            return socios[i-1];
+        }
+
+    }
     }
 
 

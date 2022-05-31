@@ -28,6 +28,38 @@ namespace CapaDatos
             Db_datos.Str += LugarBase;
         }
 
+        public static ArrayList RecuperarPagos()
+        {
+            ArrayList datos = new ArrayList();
+            try
+            {
+                string strCmd = "SELECT * FROM Pago ORDER BY id_pago";
+                Con = new OleDbConnection(Str);
+                Con.Open();
+                Da = new OleDbDataAdapter(strCmd, Con);
+                Ds = new DataSet();
+                Da.Fill(Ds);
+
+                for (int i = 0; i < Ds.Tables[0].Rows.Count; i++)
+                {
+                    datos.Add(Ds.Tables[0].Rows[i].ItemArray[0].ToString());
+                    datos.Add(Ds.Tables[0].Rows[i].ItemArray[1].ToString());
+                    datos.Add(Ds.Tables[0].Rows[i].ItemArray[2].ToString());
+                    datos.Add(Ds.Tables[0].Rows[i].ItemArray[3].ToString());
+                    datos.Add(Ds.Tables[0].Rows[i].ItemArray[4].ToString());
+
+                }
+                Con.Close();
+                Ds.Dispose();
+                Da.Dispose();
+            }
+            catch (Exception ex)
+            {
+                string error = ex.Message;
+            }
+            return datos;
+        }
+
         public static ArrayList RecuperarSocios() {
 
 
@@ -239,6 +271,64 @@ namespace CapaDatos
             return datos;
 
         }
+        public static ArrayList BuscarActividadesDeProfe(string unLegajo)
+        {
+            ArrayList datos = new ArrayList();
+            try
+            {
+                string strCmd = "SELECT * FROM Actividad WHERE legajo_profesor='" + unLegajo + "'";
+                Con = new OleDbConnection(Str);
+                Con.Open();
+                Da = new OleDbDataAdapter(strCmd, Con);
+                Ds = new DataSet();
+                Da.Fill(Ds);
+
+                for (int i = 0; i < Ds.Tables[0].Rows.Count; i++)
+                {
+                    datos.Add(Ds.Tables[0].Rows[i].ItemArray[0].ToString()); // solo quiero el id_actividad para buscarla en memoria
+                }
+                Con.Close();
+                Ds.Dispose();
+                Da.Dispose();
+            }
+            catch (Exception ex)
+            {
+                string error = ex.Message;
+            }
+            return datos;
+
+        }
+
+        public static bool crearPago(ArrayList datos)
+        {
+            bool todoBien = false;
+            if (datos != null && datos.Count == 5)
+            {
+                try
+                {
+                    int id_pago = int.Parse(datos[0].ToString());
+                    float monto = float.Parse(datos[1].ToString());
+                    string tipo_moneda = datos[2].ToString();
+                    string fecha_pago = datos[3].ToString();
+                    string dni_socio = datos[4].ToString();
+                    string strCmd = "INSERT INTO Pago(id_pago,monto,tipo_moneda,fecha_pago,dni_socio) " +
+                        "VALUES ("+id_pago+","+monto+",'"+tipo_moneda+"','"+fecha_pago+"','"+dni_socio+"')";
+                    Con = new OleDbConnection(Str);
+                    Con.Open();
+                    Cmd = new OleDbCommand(strCmd, Con);
+                    Cmd.ExecuteNonQuery();
+                    Con.Close();
+                    Cmd.Dispose();
+                    todoBien = true;
+                }
+                catch (Exception ex)
+                {
+                    string error = ex.Message;
+
+                }
+            }
+            return todoBien;
+        }
 
         public static bool insertarActividad(ArrayList datos)
         {
@@ -333,6 +423,164 @@ namespace CapaDatos
 
             }
 
+        }
+
+        public static bool inscribir(ArrayList datosAct, ArrayList datosSoc)
+        {
+            bool todoBien = false;
+            if (datosAct != null && datosSoc != null && datosAct.Count == 7 && datosSoc.Count == 6)
+            {
+                try
+                {
+                    int id_actividad = int.Parse(datosAct[0].ToString());
+                    string dni_socio = datosSoc[0].ToString();
+                    string strCmd = "INSERT INTO Actividad_Socio(id_actividad,dni_socio) " +
+                        "VALUES (" + id_actividad + ",'" + dni_socio + "')";
+
+                    Con = new OleDbConnection(Str);
+                    Con.Open();
+                    Cmd = new OleDbCommand(strCmd, Con);
+                    Cmd.ExecuteNonQuery();
+                    Con.Close();
+                    Cmd.Dispose();
+                    todoBien = true;
+                }
+                catch (Exception ex)
+                {
+                    string error = ex.Message;
+
+                }
+            }
+            return todoBien;
+        }
+
+        public static void desinscribir(int id_actividad, string dni_socio)
+        {
+            try
+            {
+                string strCmd = "DELETE FROM Actividad_Socio WHERE id_actividad=" + id_actividad + " AND " + "dni_socio='" + dni_socio+"';";
+                Con = new OleDbConnection(Str);
+                Con.Open();
+                Cmd = new OleDbCommand(strCmd, Con);
+                Cmd.ExecuteNonQuery();
+                Con.Close();
+                Cmd.Dispose();
+
+            }
+            catch (Exception ex)
+            {
+                string error = ex.Message;
+
+            }
+        }
+
+        public static bool insertarProfesor(ArrayList datos)
+        {
+            bool todoBien = false;
+            if (datos != null && datos.Count == 6)
+            {
+                try
+                {
+                    string id_legajo = datos[0].ToString();
+                    string nombre_completo = datos[1].ToString();
+                    string domicilio = datos[2].ToString();
+                    string genero = datos[3].ToString();
+                    string fecha_de_nacimiento = datos[4].ToString();
+                    string dni_profesor = datos[5].ToString();
+                    string strCmd = "INSERT INTO Profesor(id_legajo,nombre_completo,domicilio,genero,fecha_de_nacimiento,dni_profesor) " +
+                        "VALUES ('" + id_legajo + "','" +nombre_completo+ "','" + domicilio + "','" + genero + "','" + fecha_de_nacimiento + "','" + dni_profesor + "')";
+                    Con = new OleDbConnection(Str);
+                    Con.Open();
+                    Cmd = new OleDbCommand(strCmd, Con);
+                    Cmd.ExecuteNonQuery();
+                    Con.Close();
+                    Cmd.Dispose();
+                    todoBien = true;
+                }
+                catch (Exception ex)
+                {
+                    string error = ex.Message;
+
+                }
+            }
+            return todoBien;
+        }
+
+        public static void borrarProfesor(string id_legajo)
+        {
+            try
+            {
+                string strCmd = "DELETE FROM Profesor WHERE id_legajo='" + id_legajo + "';";
+                Con = new OleDbConnection(Str);
+                Con.Open();
+                Cmd = new OleDbCommand(strCmd, Con);
+                Cmd.ExecuteNonQuery();
+                Con.Close();
+                Cmd.Dispose();
+
+            }
+            catch (Exception ex)
+            {
+                string error = ex.Message;
+
+            }
+
+        }
+
+        public static void borrarSocio(string dni_socio)
+        {
+            try
+            {
+                string strCmd = "DELETE FROM Socio WHERE dni_socio='" + dni_socio + "';";
+                Con = new OleDbConnection(Str);
+                Con.Open();
+                Cmd = new OleDbCommand(strCmd, Con);
+                Cmd.ExecuteNonQuery();
+                Con.Close();
+                Cmd.Dispose();
+
+            }
+            catch (Exception ex)
+            {
+                string error = ex.Message;
+
+            }
+
+        }
+
+        public static bool insertarSocio(ArrayList datos)
+        {
+            bool todoBien = false;
+            if (datos != null && datos.Count == 6)
+            {
+                try
+                {
+                    string format1Dni = datos[0].ToString().Replace(" ", "");
+
+                    string format2Dni = format1Dni.Replace(".", "");
+                    int dni_socio = int.Parse(format2Dni);
+                    string nombre_completo = datos[1].ToString();
+                    string genero = datos[2].ToString();
+                    string fecha_de_nacimiento = datos[3].ToString();
+                    string domicilio = datos[4].ToString();
+                    float cuota_social = float.Parse(datos[5].ToString());
+                    string strCmd = "INSERT INTO Socio(dni_socio,nombre_completo,genero,fecha_de_nacimiento,domicilio,cuota_social) " +
+                        "VALUES (" + dni_socio + ",'" + nombre_completo + "','" + genero + "','" + fecha_de_nacimiento + "','" + domicilio + "'," + cuota_social + ")";
+                    Con = new OleDbConnection(Str);
+                    Con.Open();
+                    Cmd = new OleDbCommand(strCmd, Con);
+                    Cmd.ExecuteNonQuery();
+                    Con.Close();
+                    Cmd.Dispose();
+                    todoBien = true;
+                }
+                catch (Exception ex)
+                {
+                    string error = ex.Message;
+
+                }
+            }
+            return todoBien;
         }
 
     }

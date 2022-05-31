@@ -16,13 +16,14 @@ namespace CapaNegocio
         private string tipoMoneda;
         private DateTime fechaPago;
         private Socio socio;
-        public Pago(int unId, float unMonto, Socio unSocio)
+        public Pago(int unId, float unMonto, Socio unSocio, DateTime unaFecha)
         {
             id = unId;
             monto = unMonto;
             tipoMoneda = "PESOS ARG $";
             socio = unSocio;
-            fechaPago = DateTime.Now;
+            //fechaPago = DateTime.Now;
+            fechaPago = unaFecha;
         }
 
         public int Id
@@ -33,6 +34,26 @@ namespace CapaNegocio
         public override string ToString()
         {
             return id + " - " + tipoMoneda + " " + monto + " - " + socio;
+        }
+
+        public float Monto
+        {
+            get { return monto; }
+        }
+
+        public string TipoMoneda
+        {
+            get { return tipoMoneda; }
+        }
+
+        public DateTime FechaPago
+        {
+            get { return fechaPago; }
+        }
+
+        public Socio Socio
+        {
+            get { return socio; }
         }
     }
 }
