@@ -37,5 +37,11 @@ namespace CapaNegocio
             get { return base.actividadesAsociadas; }
         }
 
+        public string Legajo
+        {
+            get { return legajo; }
+            set { legajo = value; }
+        }
+
     }
 }

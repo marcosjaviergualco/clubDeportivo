@@ -53,9 +53,48 @@ namespace CapaNegocio
             socios.Add(socio);
         }
 
-        public void agregar(Actividad actividad)
+        public bool agregar(Actividad actividad)
         {
-            actividades.Add(actividad);
+            bool todoBien = false;
+            if (actividad != null)
+            {
+                todoBien = Db_datos.insertarActividad(pasarseActividadARelacional(actividad));
+                if (todoBien)
+                    actividades.Add(actividad);
+            }
+            return todoBien;
+        }
+
+        public bool modificar(Actividad actividad)
+        {
+            bool todoBien = false;
+            if (actividad != null)
+            {
+                todoBien = Db_datos.actualizarActividad(this.pasarseActividadARelacional(actividad));
+            }
+            
+            return todoBien;
+        }
+
+        public ArrayList pasarseActividadARelacional(Actividad act)
+        {
+            ArrayList datos = new ArrayList();
+            datos.Add(act.Id);
+            datos.Add(act.Descripcion);
+            datos.Add(act.Dia);
+            datos.Add(act.Hora);
+            datos.Add(act.CantMaxParticipantes);
+            datos.Add(act.Costo);
+            if(act.Profesor != null)
+            {
+                datos.Add(act.Profesor.Legajo);
+            }
+            else
+            {
+                datos.Add("");
+            }
+            
+            return datos;
         }
 
         public void agregar(Profesor profesor)
@@ -85,6 +124,7 @@ namespace CapaNegocio
 
         public void removerActividad(Actividad actividad)
         {
+            Db_datos.eliminarActividad(actividad.Id);
             actividades.Remove(actividad);
         }
 

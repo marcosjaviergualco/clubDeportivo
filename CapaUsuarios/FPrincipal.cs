@@ -98,7 +98,7 @@ namespace CapaUsuarios
 
         private void btnModificarActividad_Click(object sender, EventArgs e)
         {
-            FModificarActividad fmi = new FModificarActividad(cl.Actividades, cl.Profesores);
+            FModificarActividad fmi = new FModificarActividad(cl.Actividades, cl.Profesores, cl);
             fmi.ShowDialog();
         }
 
@@ -119,7 +119,7 @@ namespace CapaUsuarios
         {
             FEliminarActividad fea = new FEliminarActividad(cl.Actividades);
             fea.ShowDialog();
-
+            
             cl.removerSocioActividad(fea.Actividad);
             cl.removerActividad(fea.Actividad);
             MessageBox.Show("ACTIVIDAD BORRADA CON EXITO");

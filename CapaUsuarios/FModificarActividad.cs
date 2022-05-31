@@ -14,12 +14,14 @@ namespace CapaUsuarios
 {
     public partial class FModificarActividad : Form
     {
-        public FModificarActividad(List<Actividad> actividades, List<Profesor> profesores)
+        Club club;
+        public FModificarActividad(List<Actividad> actividades, List<Profesor> profesores, Club club)
         {
             InitializeComponent();
             comboBoxActividades.DataSource = actividades;
             comboBoxProfesores.DataSource = profesores;
             comboBoxActividades.SelectedItem = comboBoxActividades.Items.Count - 1;
+            this.club = club;
         }
 
         private void comboBoxActividades_SelectedIndexChanged(object sender, EventArgs e)
@@ -41,7 +43,7 @@ namespace CapaUsuarios
         {
             try
             {
-
+                
                 ((Actividad)comboBoxActividades.SelectedItem).Descripcion = textBoxDesc.Text;
                 ((Actividad)comboBoxActividades.SelectedItem).Dia = comboBoxDia.SelectedItem.ToString();
                 ((Actividad)comboBoxActividades.SelectedItem).Hora = dateTimePickerHora.Value;
@@ -61,6 +63,15 @@ namespace CapaUsuarios
                     throw new CostoException();
                     textBoxCosto.Focus();
                 }
+
+                //Actividad act = new Actividad();
+
+                bool status = this.club.modificar((Actividad)comboBoxActividades.SelectedItem);
+                if (status)
+                {
+                    MessageBox.Show("ACTIVIDAD MODIFICADA SATISFACTORIAMENTE");
+                }
+
                 this.Close();
             }
             catch (DescripcionException ex)

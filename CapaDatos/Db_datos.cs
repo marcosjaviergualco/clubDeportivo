@@ -240,7 +240,100 @@ namespace CapaDatos
 
         }
 
+        public static bool insertarActividad(ArrayList datos)
+        {
+            bool todoBien = false;
+            if (datos != null && datos.Count == 7)
+            {
+                try
+                {
+                    int id = int.Parse(datos[0].ToString());
+                    string descripcion = datos[1].ToString();
+                    string dia = datos[2].ToString();
+                    string hora = datos[3].ToString();
+                    string cant_max_participantes = datos[4].ToString();
+                    float costo = float.Parse(datos[5].ToString());
+                    string legajo_profesor = datos[6].ToString();
+                    string strCmd = "INSERT INTO Actividad(id_actividad,descripcion,dia,hora,cantidad_max_participantes,costo,legajo_profesor) " +
+                        "VALUES (" + id + "," + "'" + descripcion + "','" + dia + "','" + hora + "','" + cant_max_participantes + "'," + costo + ",'" + legajo_profesor + "')";
+                    Con = new OleDbConnection(Str);
+                    Con.Open();
+                    Cmd = new OleDbCommand(strCmd, Con);
+                    Cmd.ExecuteNonQuery();
+                    Con.Close();
+                    Cmd.Dispose();
+                    todoBien = true;
+                }
+                catch (Exception ex)
+                {
+                    string error = ex.Message;
 
+                }
+            }
+            return todoBien;
+        }
+
+        public static bool actualizarActividad(ArrayList datos)
+        {
+            bool todoBien = false;
+            if (datos != null && datos.Count == 7)
+            {
+                try
+                {
+                    int id = int.Parse(datos[0].ToString());
+                    string descripcion = datos[1].ToString();
+                    string dia = datos[2].ToString();
+                    string hora = datos[3].ToString().Substring(datos[3].ToString().IndexOf(" ") + 1);
+                    string cant_max_participantes = datos[4].ToString();
+                    float costo = float.Parse(datos[5].ToString());
+                    string legajo_profesor = datos[6].ToString();
+                    string strCmd = "UPDATE Actividad " +
+                        "SET id_actividad = " + id + ","
+                        + " descripcion= '" + descripcion + "',"
+                        + " dia= '" + dia + "',"
+                        + " hora= '" + hora + "',"
+                        + " cantidad_max_participantes= '" + cant_max_participantes + "',"
+                        + " costo= '" + costo + "',"
+                        + " legajo_profesor = '" + legajo_profesor + "'" +
+                        " WHERE id_actividad = " + id;
+                        
+                    Con = new OleDbConnection(Str);
+                    Con.Open();
+                    Cmd = new OleDbCommand(strCmd, Con);
+                    Cmd.ExecuteNonQuery();
+                    Con.Close();
+                    Cmd.Dispose();
+                    todoBien = true;
+                }
+                catch (Exception ex)
+                {
+                    string error = ex.Message;
+
+                }
+            }
+            return todoBien;
+        }
+
+        public static void eliminarActividad(int idActividad)
+        {
+            try
+            {
+                string strCmd = "DELETE FROM Actividad WHERE id_actividad=" + idActividad + ";";
+                Con = new OleDbConnection(Str);
+                Con.Open();
+                Cmd = new OleDbCommand(strCmd, Con);
+                Cmd.ExecuteNonQuery();
+                Con.Close();
+                Cmd.Dispose();
+
+            }
+            catch (Exception ex)
+            {
+                string error = ex.Message;
+
+            }
+
+        }
 
     }
 }
