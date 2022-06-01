@@ -434,7 +434,8 @@ namespace CapaDatos
                 try
                 {
                     int id_actividad = int.Parse(datosAct[0].ToString());
-                    string dni_socio = datosSoc[0].ToString();
+                    string format1Dni = datosSoc[0].ToString().Replace(" ", "");
+                    string dni_socio = format1Dni.Replace(".", "");
                     string strCmd = "INSERT INTO Actividad_Socio(id_actividad,dni_socio) " +
                         "VALUES (" + id_actividad + ",'" + dni_socio + "')";
 
@@ -487,7 +488,8 @@ namespace CapaDatos
                     string domicilio = datos[2].ToString();
                     string genero = datos[3].ToString();
                     string fecha_de_nacimiento = datos[4].ToString();
-                    string dni_profesor = datos[5].ToString();
+                    string format1Dni = datos[5].ToString().Replace(" ", "");
+                    string dni_profesor = format1Dni.Replace(".", "");
                     string strCmd = "INSERT INTO Profesor(id_legajo,nombre_completo,domicilio,genero,fecha_de_nacimiento,dni_profesor) " +
                         "VALUES ('" + id_legajo + "','" +nombre_completo+ "','" + domicilio + "','" + genero + "','" + fecha_de_nacimiento + "','" + dni_profesor + "')";
                     Con = new OleDbConnection(Str);
@@ -528,11 +530,12 @@ namespace CapaDatos
 
         }
 
-        public static void borrarSocio(string dni_socio)
+        public static void borrarSocio(string dni_socio_string)
         {
             try
             {
-                string strCmd = "DELETE FROM Socio WHERE dni_socio='" + dni_socio + "';";
+                int dni_socio = int.Parse(dni_socio_string);
+                string strCmd = "DELETE FROM Socio WHERE dni_socio=" + dni_socio + ";";
                 Con = new OleDbConnection(Str);
                 Con.Open();
                 Cmd = new OleDbCommand(strCmd, Con);
