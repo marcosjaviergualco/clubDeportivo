@@ -310,7 +310,8 @@ namespace CapaDatos
                     float monto = float.Parse(datos[1].ToString());
                     string tipo_moneda = datos[2].ToString();
                     string fecha_pago = datos[3].ToString();
-                    string dni_socio = datos[4].ToString();
+                    string format1Dni = datos[4].ToString().Replace(" ", "");
+                    string dni_socio = format1Dni.Replace(".", "");
                     string strCmd = "INSERT INTO Pago(id_pago,monto,tipo_moneda,fecha_pago,dni_socio) " +
                         "VALUES ("+id_pago+","+monto+",'"+tipo_moneda+"','"+fecha_pago+"','"+dni_socio+"')";
                     Con = new OleDbConnection(Str);
