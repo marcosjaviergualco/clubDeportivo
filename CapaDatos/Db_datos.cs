@@ -15,7 +15,7 @@ namespace CapaDatos
     {
         //Para Access 2000-2003
         private static string LugarBase;
-        private static string Str = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=";
+        private static string Str = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\BAVALOS\\Documents\\GitHub\\clubDeportivo\\CapaUsuarios\\bin\\Debug\\Persistencia\\club_deportivo.mdb";
         //Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\bin\Debug\Persistencia\basePersonas.mdb
         private static OleDbConnection Con;
         private static OleDbCommand Cmd;
@@ -25,7 +25,7 @@ namespace CapaDatos
         public static void PonerPathBaseAccess(string l)
         {
             LugarBase = l + @"\Persistencia\club_deportivo.mdb";
-            Db_datos.Str += LugarBase;
+           // Db_datos.Str += LugarBase;
         }
 
         public static ArrayList RecuperarPagos()
